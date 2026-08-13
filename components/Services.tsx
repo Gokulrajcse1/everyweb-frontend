@@ -24,7 +24,7 @@ export default function ServicesSection() {
 
   return (
     <section className='bg-[#efefef] py-16'>
-      <div className='mx-auto w-[96vw] max-w-[1320px]'>
+      <div className='mx-auto w-[96vw] max-w-330'>
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -49,7 +49,7 @@ export default function ServicesSection() {
               transition={{ duration: 0.7, delay: index * 0.1 }}
               className='border-2 border-black bg-[#efefef] p-6 shadow-[6px_6px_0_0_#000]'
             >
-              <div className='flex h-[300px] items-center justify-center'>
+              <div className='flex h-75 items-center justify-center'>
                 <Image
                   src={service.image}
                   alt={service.title}

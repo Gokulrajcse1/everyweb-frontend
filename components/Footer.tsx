@@ -6,7 +6,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/
 export default function Footer() {
   return (
     <footer className='bg-[#efefef] py-16'>
-      <div className='mx-auto w-[96vw] max-w-[1320px] border-2 border-black bg-[#efefef]'>
+      <div className='mx-auto w-[96vw] max-w-330 border-2 border-black bg-[#efefef]'>
         {/* Main Footer */}
         <div className='grid grid-cols-1 lg:grid-cols-[360px_1fr]'>
           {/* Left Brand Section */}
@@ -23,7 +23,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className='max-w-[260px] text-[18px] leading-8 text-[#333333]'>
+            <p className='max-w-65 text-[18px] leading-8 text-[#333333]'>
               We help businesses build stronger brands through strategic
               branding, impactful graphic design, and modern website
               development.

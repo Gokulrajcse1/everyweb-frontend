@@ -7,8 +7,8 @@ export default function Hero() {
   return (
     <section className='bg-[#efefef]'>
       {/* Same width as the header */}
-      <div className='mx-auto w-[96vw] max-w-[1320px]'>
-        <div className='grid min-h-[620px] grid-cols-1 items-start gap-8 pt-6 lg:grid-cols-[0.95fr_1.25fr]'>
+      <div className='mx-auto w-[96vw] max-w-330'>
+        <div className='grid min-h-155 grid-cols-1 items-start gap-8 pt-6 lg:grid-cols-[0.95fr_1.25fr]'>
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -28,7 +28,7 @@ export default function Hero() {
               That Matter!
             </h1>
 
-            <p className='mt-8 max-w-[520px] text-[18px] leading-8 text-[#333333]'>
+            <p className='mt-8 max-w-130 text-[18px] leading-8 text-[#333333]'>
               Everyweb Matters helps brands stand out with strategic packaging
               design, grow through powerful websites, and build lasting presence
               with creative brand content.
@@ -58,7 +58,7 @@ export default function Hero() {
               width={760}
               height={760}
               priority
-              className='h-auto w-full max-w-[760px] -translate-y-2'
+              className='h-auto w-full max-w-190 -translate-y-2'
             />
           </motion.div>
         </div>

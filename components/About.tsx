@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function AboutSection() {
   return (
     <section className='bg-[#efefef] py-16'>
-      <div className='mx-auto w-[96vw] max-w-[1320px]'>
+      <div className='mx-auto w-[96vw] max-w-330'>
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,7 +38,7 @@ export default function AboutSection() {
           ].map(([value, title, subtitle], index) => (
             <div
               key={index}
-              className='flex min-h-[210px] flex-col items-center justify-center border-b-2 border-black p-6 text-center last:border-b-0 md:border-b-0 md:border-r-2 last:md:border-r-0'
+              className='flex min-h-52.5 flex-col items-center justify-center border-b-2 border-black p-6 text-center last:border-b-0 md:border-b-0 md:border-r-2 last:md:border-r-0'
             >
               <div className='text-[48px] font-bold italic text-[#5a4bff]'>
                 {value}
@@ -66,7 +66,7 @@ export default function AboutSection() {
               alt='Flying superhero illustration'
               width={560}
               height={560}
-              className='h-auto w-full max-w-[560px]'
+              className='h-auto w-full max-w-140'
             />
           </motion.div>
 

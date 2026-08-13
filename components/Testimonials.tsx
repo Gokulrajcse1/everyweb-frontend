@@ -30,7 +30,7 @@ const features = [
 export default function WhyChooseUs() {
   return (
     <section className='bg-[#efefef] py-16'>
-      <div className='mx-auto w-[96vw] max-w-[1320px]'>
+      <div className='mx-auto w-[96vw] max-w-330'>
         <div className='grid items-center gap-10 lg:grid-cols-[1fr_0.9fr]'>
           {/* Left side */}
           <motion.div
@@ -88,7 +88,7 @@ export default function WhyChooseUs() {
               alt='Flying superhero illustration'
               width={620}
               height={620}
-              className='h-auto w-full max-w-[620px]'
+              className='h-auto w-full max-w-155'
             />
           </motion.div>
         </div>

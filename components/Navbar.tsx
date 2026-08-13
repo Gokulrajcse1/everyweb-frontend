@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <header className="w-full bg-[#efefef] overflow-visible py-4">
       <div className="mx-auto w-[96vw] border-2 border-black shadow-[4px_4px_0_0_#000]">
-        {/* Top Row */}<div className="flex h-[74px] items-center justify-between border-b-2 border-black">
+        {/* Top Row */}<div className="flex h-18.5 items-center justify-between border-b-2 border-black">
           {/* Logo */}<Link href="/" className="flex items-center pl-6">
             <div className="mr-2 text-[40px] font-black leading-none text-[#3b2a25]">
               M
@@ -28,39 +28,39 @@ export default function Navbar() {
           {/* Social Icons */}<div className="flex h-full">
             <a
               href="#"
-              className="flex h-full w-[64px] items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
+              className="flex h-full w-16 items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
             >
               <FaFacebookF size={20} />
             </a>
 
             <a
               href="#"
-              className="flex h-full w-[64px] items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
+              className="flex h-full w-16 items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
             >
               <FaInstagram size={20} />
             </a>
 
             <a
               href="#"
-              className="flex h-full w-[64px] items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
+              className="flex h-full w-16 items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
             >
               <FaLinkedinIn size={20} />
             </a>
 
             <a
               href="#"
-              className="flex h-full w-[64px] items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
+              className="flex h-full w-16 items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
             >
               <FaWhatsapp size={22} />
             </a>
           </div>
         </div>
 
-        {/* Bottom Navigation */}<nav className="flex h-[62px] items-center">
+        {/* Bottom Navigation */}<nav className="flex h-15.5 items-center">
           {/* Home Icon Box */}<div className="pl-4">
             <Link
               href="/"
-              className="flex h-[42px] w-[42px] items-center justify-center border border-gray-300 bg-white text-black transition hover:bg-black hover:text-white"
+              className="flex h-10.5 w-10.5 items-center justify-center border border-gray-300 bg-white text-black transition hover:bg-black hover:text-white"
             >
               <House size={22} />
             </Link>

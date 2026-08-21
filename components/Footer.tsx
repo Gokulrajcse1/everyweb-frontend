@@ -1,133 +1,256 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import Link from "next/link";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function Footer() {
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "Behind EM", href: "/about" },
+    { label: "Capabilities", href: "/services" },
+    { label: "EM in Action", href: "/works" },
+    { label: "Let's Create", href: "/contact" },
+  ];
+
+  const socialLinks = [
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/everywebmatters",
+      icon: <FaFacebookF size={20} />,
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/everywebmatters",
+      icon: <FaInstagram size={20} />,
+    },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/everywebmatters/",
+      icon: <FaLinkedinIn size={20} />,
+    },
+    {
+      label: "WhatsApp",
+      href: "https://wa.me/0000000000",
+      icon: <FaWhatsapp size={22} />,
+    },
+  ];
+
   return (
-    <footer className='bg-[#efefef] py-16'>
-      <div className='mx-auto w-[96vw] max-w-330 border-2 border-black bg-[#efefef]'>
-        {/* Main Footer */}
-        <div className='grid grid-cols-1 lg:grid-cols-[360px_1fr]'>
-          {/* Left Brand Section */}
-          <div className='border-b-2 border-black p-8 lg:border-b-0 lg:border-r-2'>
-            <div className='mb-6 flex items-center gap-3'>
-              <div className='text-4xl font-black text-[#3b2a25]'>M</div>
-              <div className='leading-none'>
-                <div className='text-4xl font-black tracking-tight text-[#3b2a25]'>
-                  everyweb
+    <footer className="bg-[#efefef] py-16">
+      <div className="mx-auto w-[96vw] max-w-[1130px] border border-black bg-white">
+
+        {/* =========================
+            MAIN FOOTER
+        ========================== */}
+        <div className="grid grid-cols-1 lg:grid-cols-[365px_1fr]">
+
+          {/* =========================
+              LEFT BRAND SECTION
+          ========================== */}
+          <div className="flex flex-col border-b border-black lg:border-b-0 lg:border-r">
+
+            {/* Brand + Description */}
+            <div className="flex-1 p-8">
+
+              {/* Logo */}
+              <Link
+                href="/"
+                className="inline-block transition-transform duration-300 hover:scale-[1.02]"
+              >
+                <div className="flex items-center">
+
+                  {/* M Logo */}
+                  <div className="mr-2 text-[38px] font-black leading-none tracking-[-0.08em] text-[#3b2a25]">
+                    M
+                  </div>
+
+                  {/* Brand Name */}
+                  <div className="leading-none">
+                    <div className="text-[38px] font-black tracking-[-0.055em] text-[#3b2a25]">
+                      everyweb
+                    </div>
+
+                    <div className="mt-[3px] text-[8px] uppercase tracking-[0.38em] text-[#3b2a25]">
+                      Matters
+                    </div>
+                  </div>
+
                 </div>
-                <div className='mt-1 text-[10px] uppercase tracking-[0.35em] text-[#3b2a25]'>
-                  matters
-                </div>
-              </div>
+              </Link>
+
+              {/* Description */}
+              <p className="mt-7 max-w-[300px] text-[16px] leading-[1.75] text-[#333333]">
+                We help businesses build stronger brands through strategic
+                branding, impactful graphic design, and modern website
+                development.
+              </p>
             </div>
 
-            <p className='max-w-65 text-[18px] leading-8 text-[#333333]'>
-              We help businesses build stronger brands through strategic
-              branding, impactful graphic design, and modern website
-              development.
-            </p>
-
-            {/* Social Icons */}
-            <div className='mt-8 flex gap-4 border-t-2 border-black pt-6'>
-              {[
-                FaFacebookF,
-                FaInstagram,
-                FaLinkedinIn,
-                FaWhatsapp,
-              ].map((Icon, index) => (
+            {/* =========================
+                SOCIAL ICONS
+            ========================== */}
+            <div className="flex gap-4 border-t border-black p-6">
+              {socialLinks.map((social) => (
                 <a
-                  key={index}
-                  href='#'
-                  className='flex h-14 w-14 items-center justify-center border-2 border-black text-black transition hover:bg-black hover:text-white'
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="
+                    flex
+                    h-14
+                    w-14
+                    items-center
+                    justify-center
+                    border
+                    border-black
+                    text-black
+                    transition-all
+                    duration-300
+                    hover:bg-black
+                    hover:text-white
+                  "
                 >
-                  <Icon size={22} />
+                  {social.icon}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Right Columns */}
-          <div className='grid grid-cols-1 gap-8 p-8 md:grid-cols-3'>
-            {/* Quick Links */}
+          {/* =========================
+              RIGHT CONTENT
+          ========================== */}
+          <div className="grid grid-cols-1 gap-10 p-8 md:grid-cols-3">
+
+            {/* =========================
+                QUICK LINKS
+            ========================== */}
             <div>
-              <h3 className='mb-5 text-[24px] font-bold underline'>
+              <h3 className="mb-5 text-[20px] font-black text-black underline decoration-2 underline-offset-4">
                 Quick links
               </h3>
-              <div className='space-y-4 text-[20px]'>
-                <Link href='/' className='block hover:text-[#5a4bff]'>
-                  Home
-                </Link>
-                <Link href='/about' className='block hover:text-[#5a4bff]'>
-                  About Us
-                </Link>
-                <Link href='/services' className='block hover:text-[#5a4bff]'>
-                  Services
-                </Link>
-                <Link href='/works' className='block hover:text-[#5a4bff]'>
-                  Our Work
-                </Link>
-                <Link href='/contact' className='block hover:text-[#5a4bff]'>
-                  Contact Us
-                </Link>
-              </div>
+
+              <nav className="space-y-3 text-[18px] text-[#333333]">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="
+                      block
+                      transition-colors
+                      duration-300
+                      hover:text-[#5a4bff]
+                    "
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
             </div>
 
-            {/* Services */}
+            {/* =========================
+                SERVICES
+            ========================== */}
             <div>
-              <h3 className='mb-5 text-[24px] font-bold underline'>
+              <h3 className="mb-5 text-[20px] font-black text-black underline decoration-2 underline-offset-4">
                 Services
               </h3>
-              <div className='space-y-4 text-[20px]'>
+
+              <div className="space-y-3 text-[18px] text-[#333333]">
                 <p>Graphic Design</p>
                 <p>Website Development</p>
                 <p>Brand Awareness</p>
               </div>
             </div>
 
-            {/* Contact */}
+            {/* =========================
+                GET IN TOUCH
+            ========================== */}
             <div>
-              <h3 className='mb-5 text-[24px] font-bold underline'>
+              <h3 className="mb-5 text-[20px] font-black text-black underline decoration-2 underline-offset-4">
                 Get in Touch
               </h3>
 
-              <div className='space-y-6 text-[18px] text-[#333333]'>
+              <div className="space-y-6 text-[#333333]">
+
+                {/* Location */}
                 <div>
-                  <h4 className='mb-2 text-[22px] font-semibold text-black'>
+                  <h4 className="mb-2 text-[20px] font-medium text-black">
                     Location
                   </h4>
-                  <p>
+
+                  <p className="max-w-[270px] text-[15px] leading-6 text-[#333333]">
                     F4 Shop, 13/40, DL Plaza, Kamarajar Road,
                     Melakalakandarkottai, Tiruchirappalli – 620011,
                     Tamil Nadu, India.
                   </p>
                 </div>
 
+                {/* Email */}
                 <div>
-                  <h4 className='mb-2 text-[22px] font-semibold text-black'>
+                  <h4 className="mb-2 text-[20px] font-medium text-black">
                     Email
                   </h4>
-                  <p>contact@everywebmatters.com</p>
+
+                  <a
+                    href="mailto:contact@everywebmatters.com"
+                    className="
+                      text-[15px]
+                      text-[#333333]
+                      transition-colors
+                      duration-300
+                      hover:text-[#5a4bff]
+                    "
+                  >
+                    contact@everywebmatters.com
+                  </a>
                 </div>
 
+                {/* Phone */}
                 <div>
-                  <h4 className='mb-2 text-[22px] font-semibold text-black'>
+                  <h4 className="mb-2 text-[20px] font-medium text-black">
                     Phone
                   </h4>
-                  <p>+91 96982 84661</p>
+
+                  <a
+                    href="tel:+919698284661"
+                    className="
+                      text-[15px]
+                      text-[#333333]
+                      transition-colors
+                      duration-300
+                      hover:text-[#5a4bff]
+                    "
+                  >
+                    +91 96982 84661
+                  </a>
                 </div>
+
               </div>
             </div>
+
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className='border-t-2 border-black py-5 text-center text-[18px] text-[#333333]'>
-          © Copyright 2025{' '}
-          <span className='font-medium underline'>Everyweb Matters</span> –
-          All Rights Reserved.
+        {/* =========================
+            COPYRIGHT
+        ========================== */}
+        <div className="border-t border-black py-3 text-center">
+          <p className="text-[14px] text-[#333333]">
+            © Copyright 2025{" "}
+            <span className="underline underline-offset-1">
+              Everyweb Matters
+            </span>{" "}
+            – All Rights Reserved.
+          </p>
         </div>
+
       </div>
     </footer>
   );

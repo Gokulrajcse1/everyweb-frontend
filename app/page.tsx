@@ -2,9 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import About from "@/components/About";
-// import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
-// import CTASection from "@/components/CTASection";
+import Chooseus from "@/components/whychooseus";
 import Footer from "@/components/Footer";
 export default function Home() {
   return (
@@ -13,9 +11,7 @@ export default function Home() {
       <Hero />
       <Services />
       <About />
-      {/* <Portfolio /> */}
-      <Testimonials />
-      {/* <CTASection /> */}
+      <Chooseus />
       <Footer />
     </main>
   );

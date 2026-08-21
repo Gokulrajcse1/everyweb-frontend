@@ -1,15 +1,66 @@
 "use client";
 
 import Link from "next/link";
-import { House } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function Navbar() {
+  const navItems = [
+    { label: "Home", href: "/" },
+    { label: "Behind EM", href: "/about" },
+    { label: "Capabilities", href: "/services" },
+    { label: "EM in Action", href: "/works" },
+    { label: "Let's Create", href: "/contact" },
+  ];
+
+  const socialLinks = [
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/everywebmatters",
+      icon: <FaFacebookF size={20} />,
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/everywebmatters",
+      icon: <FaInstagram size={20} />,
+    },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/everywebmatters/",
+      icon: <FaLinkedinIn size={20} />,
+    },
+    {
+      label: "WhatsApp",
+      href: "https://wa.me/0000000000",
+      icon: <FaWhatsapp size={22} />,
+    },
+  ];
+
   return (
-    <header className="w-full bg-[#efefef] overflow-visible py-4">
-      <div className="mx-auto w-[96vw] border-2 border-black shadow-[4px_4px_0_0_#000]">
-        {/* Top Row */}<div className="flex h-18.5 items-center justify-between border-b-2 border-black">
-          {/* Logo */}<Link href="/" className="flex items-center pl-6">
+    <header className="w-full bg-white px-0 py-4 overflow-visible">
+      <div
+        className="
+          mx-auto
+          w-[96vw]
+          border-2
+          border-black
+          bg-[#efefef]
+          shadow-[5px_5px_0_0_#000]
+        "
+      >
+        {/* =========================
+            TOP ROW
+        ========================== */}
+        <div className="flex min-h-20.5 items-center justify-between border-b-2 border-black">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="flex items-center pl-6 transition-transform duration-300 hover:scale-[1.02]"
+          >
             <div className="mr-2 text-[40px] font-black leading-none text-[#3b2a25]">
               M
             </div>
@@ -25,63 +76,76 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Social Icons */}<div className="flex h-full">
-            <a
-              href="#"
-              className="flex h-full w-16 items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
-            >
-              <FaFacebookF size={20} />
-            </a>
-
-            <a
-              href="#"
-              className="flex h-full w-16 items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
-            >
-              <FaInstagram size={20} />
-            </a>
-
-            <a
-              href="#"
-              className="flex h-full w-16 items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
-            >
-              <FaLinkedinIn size={20} />
-            </a>
-
-            <a
-              href="#"
-              className="flex h-full w-16 items-center justify-center border-l-2 border-black text-black transition hover:bg-black hover:text-white"
-            >
-              <FaWhatsapp size={22} />
-            </a>
+          {/* Social Icons */}
+          <div className="flex h-full">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="
+                  flex
+                  h-full
+                  w-16
+                  items-center
+                  justify-center
+                  border-l-2
+                  border-black
+                  text-black
+                  transition-all
+                  duration-300
+                  hover:bg-black
+                  hover:text-white
+                "
+              >
+                {social.icon}
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Navigation */}<nav className="flex h-15.5 items-center">
-          {/* Home Icon Box */}<div className="pl-4">
-            <Link
-              href="/"
-              className="flex h-10.5 w-10.5 items-center justify-center border border-gray-300 bg-white text-black transition hover:bg-black hover:text-white"
-            >
-              <House size={22} />
-            </Link>
-          </div>
-
-          {/* Navigation Links */}<div className="flex flex-1 items-center justify-around px-8 text-[18px] font-normal text-black">
-            <Link href="/about" className="transition hover:text-[#5a4bff]">
-              About Us
-            </Link>
-
-            <Link href="/services" className="transition hover:text-[#5a4bff]">
-              Services
-            </Link>
-
-            <Link href="/works" className="transition hover:text-[#5a4bff]">
-              Our Works
-            </Link>
-
-            <Link href="/contact" className="transition hover:text-[#5a4bff]">
-              Contact Us
-            </Link>
+        {/* =========================
+            NAVIGATION
+        ========================== */}
+        <nav className="flex min-h-15.5 items-center justify-center px-6">
+          <div
+            className="
+              flex
+              w-full
+              items-center
+              justify-between
+              gap-6
+              text-[18px]
+              font-normal
+              text-black
+            "
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="
+                  relative
+                  py-2
+                  transition-all
+                  duration-300
+                  hover:text-[#5a4bff]
+                  after:absolute
+                  after:bottom-0
+                  after:left-0
+                  after:h-0.5
+                  after:w-0
+                  after:bg-[#5a4bff]
+                  after:transition-all
+                  after:duration-300
+                  hover:after:w-full
+                "
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </nav>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaFacebookF,
   FaInstagram,
@@ -41,7 +42,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="w-full bg-white px-0 py-4 overflow-visible">
+    <header className="w-full overflow-visible bg-white px-0 py-4">
       <div
         className="
           mx-auto
@@ -56,24 +57,27 @@ export default function Navbar() {
             TOP ROW
         ========================== */}
         <div className="flex min-h-20.5 items-center justify-between border-b-2 border-black">
+          
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center pl-6 transition-transform duration-300 hover:scale-[1.02]"
+            className="
+              flex
+              items-center
+              pl-6
+              transition-transform
+              duration-300
+              hover:scale-[1.02]
+            "
           >
-            <div className="mr-2 text-[40px] font-black leading-none text-[#3b2a25]">
-              M
-            </div>
-
-            <div className="leading-none">
-              <div className="text-[44px] font-black tracking-[-0.04em] text-[#3b2a25]">
-                everyweb
-              </div>
-
-              <div className="mt-1 text-[9px] uppercase tracking-[0.35em] text-[#3b2a25]">
-                Matters
-              </div>
-            </div>
+            <Image
+              src="/EM logo.svg"
+              alt="EveryWeb Matters"
+              width={220}
+              height={60}
+              priority
+              className="h-14 w-auto object-contain"
+            />
           </Link>
 
           {/* Social Icons */}

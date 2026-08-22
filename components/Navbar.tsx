@@ -13,7 +13,7 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Behind EM", href: "/about" },
-    { label: "Capabilities", href: "/services" },
+    { label: "Capabilities", href: "/service" },
     { label: "EM in Action", href: "/works" },
     { label: "Let's Create", href: "/contact" },
   ];
@@ -36,7 +36,7 @@ export default function Navbar() {
     },
     {
       label: "WhatsApp",
-      href: "https://wa.me/0000000000",
+      href: "https://wa.me/9698284661",
       icon: <FaWhatsapp size={22} />,
     },
   ];

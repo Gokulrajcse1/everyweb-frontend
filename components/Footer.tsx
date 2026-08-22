@@ -35,14 +35,14 @@ export default function Footer() {
     },
     {
       label: "WhatsApp",
-      href: "https://wa.me/0000000000",
+      href: "https://wa.me/9698284661",
       icon: <FaWhatsapp size={22} />,
     },
   ];
 
   return (
     <footer className="bg-[#efefef] py-16">
-      <div className="mx-auto w-[96vw] max-w-[1130px] border border-black bg-white">
+      <div className="mx-auto w-[96vw] max-w-282.5 border border-black bg-white">
 
         {/* =========================
             MAIN FOOTER
@@ -75,7 +75,7 @@ export default function Footer() {
                       everyweb
                     </div>
 
-                    <div className="mt-[3px] text-[8px] uppercase tracking-[0.38em] text-[#3b2a25]">
+                    <div className="mt-0.75 text-[8px] uppercase tracking-[0.38em] text-[#3b2a25]">
                       Matters
                     </div>
                   </div>
@@ -84,7 +84,7 @@ export default function Footer() {
               </Link>
 
               {/* Description */}
-              <p className="mt-7 max-w-[300px] text-[16px] leading-[1.75] text-[#333333]">
+              <p className="mt-7 max-w-75 text-[16px] leading-[1.75] text-[#333333]">
                 We help businesses build stronger brands through strategic
                 branding, impactful graphic design, and modern website
                 development.
@@ -185,7 +185,7 @@ export default function Footer() {
                     Location
                   </h4>
 
-                  <p className="max-w-[270px] text-[15px] leading-6 text-[#333333]">
+                  <p className="max-w-67.5 text-[15px] leading-6 text-[#333333]">
                     F4 Shop, 13/40, DL Plaza, Kamarajar Road,
                     Melakalakandarkottai, Tiruchirappalli – 620011,
                     Tamil Nadu, India.

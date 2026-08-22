@@ -61,8 +61,26 @@ export default function Hero() {
           {/* Right Image */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              y: [0, -10, 0, 10, 0],
+            }}
+            transition={{
+              opacity: {
+                duration: 0.8,
+                delay: 0.15,
+              },
+              x: {
+                duration: 0.8,
+                delay: 0.15,
+              },
+              y: {
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
             className="hidden items-start justify-end lg:flex"
           >
             <Image

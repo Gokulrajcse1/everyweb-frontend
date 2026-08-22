@@ -55,7 +55,7 @@ export default function AboutSection() {
               }}
               className="
                 flex
-                min-h-[230px]
+                min-h-57.5
                 flex-col
                 items-end
                 justify-center
@@ -82,7 +82,7 @@ export default function AboutSection() {
               </div>
 
               {/* Description */}
-              <p className="mt-5 max-w-[220px] text-[16px] leading-6 text-[#444444]">
+              <p className="mt-5 max-w-55 text-[16px] leading-6 text-[#444444]">
                 {subtitle}
               </p>
             </motion.div>

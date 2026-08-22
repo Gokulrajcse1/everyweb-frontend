@@ -94,7 +94,7 @@ export default function WhyChooseUs() {
             className="flex justify-center lg:justify-end"
           >
             <Image
-              src="/why-choose-us.png"
+              src="/chracter2.svg"
               alt="Why choose us illustration"
               width={620}
               height={620}

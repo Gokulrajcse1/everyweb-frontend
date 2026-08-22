@@ -66,7 +66,7 @@ export default function Hero() {
             className="hidden items-start justify-end lg:flex"
           >
             <Image
-              src="/hero-superman.png"
+              src="/chracter2.svg"
               alt="Flying superhero illustration"
               width={760}
               height={760}

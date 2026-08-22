@@ -7,17 +7,17 @@ export default function ServicesSection() {
   const services = [
     {
       title: "Graphic Design",
-      image: "/service-graphic.png",
+      image: "/service-graphic.svg",
       desc: "We design creative visuals that support your brand identity across packaging, websites, & everywhere",
     },
     {
       title: "Website Design",
-      image: "/service-website.png",
+      image: "/service-website.svg",
       desc: "We build professional websites that strengthen your brand presence and help your business grow online.",
     },
     {
       title: "Brand Awareness",
-      image: "/service-brand.png",
+      image: "/service-brand.svg",
       desc: "We support your brand with creative content, videos, and social media visuals to improve visibility.",
     },
   ];

@@ -103,7 +103,7 @@ export default function AboutSection() {
             className="flex justify-center lg:justify-start"
           >
             <Image
-              src="/hero-superman.png"
+              src="/chracter2.svg"
               alt="Flying superhero illustration"
               width={560}
               height={560}

@@ -24,7 +24,7 @@ export default function ServicesSection() {
 
   return (
     <section className="bg-[#f3f3f3] py-16 lg:py-20">
-      <div className="mx-auto w-[96vw] max-w-[1320px]">
+      <div className="mx-auto w-[96vw] max-w-330">
         
         {/* =========================
             HEADING
@@ -57,7 +57,7 @@ export default function ServicesSection() {
               }}
               className="
                 flex
-                min-h-[560px]
+                min-h-140
                 flex-col
                 border-2
                 border-black
@@ -70,13 +70,13 @@ export default function ServicesSection() {
               "
             >
               {/* Image */}
-              <div className="flex h-[235px] items-center justify-center">
+              <div className="flex h-58.75 items-center justify-center">
                 <Image
                   src={service.image}
                   alt={service.title}
                   width={320}
                   height={320}
-                  className="h-auto w-full max-w-[270px] object-contain"
+                  className="h-auto w-full max-w-67.5 object-contain"
                 />
               </div>
 
@@ -86,7 +86,7 @@ export default function ServicesSection() {
                   {service.title}
                 </h3>
 
-                <p className="mx-auto mt-3 max-w-[360px] text-center text-[16px] leading-7 text-[#444444]">
+                <p className="mx-auto mt-3 max-w-90 text-center text-[16px] leading-7 text-[#444444]">
                   {service.desc}
                 </p>
 

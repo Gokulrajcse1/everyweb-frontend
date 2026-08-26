@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Lightbulb, Puzzle, Target, Headphones } from 'lucide-react';
 
@@ -29,78 +28,60 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto w-[96vw] max-w-330">
+    <section className="bg-[#f3f3f3] py-16 sm:py-20">
+      <div className="mx-auto w-[calc(100%-2rem)] max-w-350 sm:w-[96vw]">
 
         {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-12"
-        >
-          <h2 className="text-[56px] font-bold italic leading-none text-black lg:text-[64px]">
+        <div className="mb-12">
+          <h2 className="text-[40px] font-bold italic leading-none text-black sm:text-[52px] lg:text-[64px]">
             Why Choose Us?
           </h2>
-        </motion.div>
+        </div>
 
         {/* Content */}
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_0.9fr]">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
 
           {/* Left - Reasons */}
-          <div className="space-y-7">
-            {reasons.map((reason, index) => {
+          <div className="space-y-6">
+            {reasons.map((reason) => {
               const Icon = reason.icon;
 
               return (
-                <motion.div
+                <div
                   key={reason.title}
-                  initial={{ opacity: 0, x: -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.1,
-                  }}
-                  className="flex items-center gap-5"
+                  className="flex items-stretch gap-0"
                 >
-                  {/* Icon */}
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center border-2 border-black bg-black text-white">
-                    <Icon size={38} strokeWidth={1.8} />
+                  {/* Icon Container matching text box height */}
+                  <div className="flex w-16 shrink-0 items-center justify-center border-2 border-r-0 border-black bg-black text-white sm:w-20 lg:w-24">
+                    <Icon className="h-7 w-7 sm:h-9 sm:w-9" strokeWidth={1.8} />
                   </div>
 
-                  {/* Text */}
-                  <div className="flex-1 border-2 border-black bg-white px-6 py-5">
-                    <h3 className="text-[24px] font-semibold text-black lg:text-[28px]">
+                  {/* Text Container */}
+                  <div className="flex-1 border-2 border-black bg-white px-5 py-4 sm:px-6 sm:py-5">
+                    <h3 className="text-[18px] font-semibold text-black sm:text-[22px] lg:text-[24px]">
                       {reason.title}
                     </h3>
 
-                    <p className="mt-1 text-[16px] text-[#555555] lg:text-[18px]">
+                    <p className="mt-1 text-[14px] text-[#555555] sm:text-[16px]">
                       {reason.description}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
 
-          {/* Right - Illustration */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center lg:justify-end"
-          >
+          {/* Right - Illustration (Enlarged) */}
+          <div className="flex justify-center lg:justify-end">
             <Image
               src="/chracter2.svg"
               alt="Why choose us illustration"
-              width={620}
-              height={620}
+              width={750}
+              height={750}
+              priority
               className="h-auto w-full max-w-155 object-contain"
             />
-          </motion.div>
+          </div>
 
         </div>
 

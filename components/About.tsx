@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function AboutSection() {
@@ -12,82 +11,111 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="bg-[#f3f3f3] py-20">
-      <div className="mx-auto w-[96vw] max-w-330">
+    <section className="bg-white py-16 sm:py-20">
+      <div className="mx-auto w-[calc(100%-2rem)] max-w-330 sm:w-[96vw]">
 
         {/* =========================
-            CREATIVE SOLUTIONS HEADING
+            CREATIVE SOLUTIONS
         ========================== */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-12"
-        >
-          <h2 className="text-[56px] font-bold italic leading-[0.98] tracking-[-0.03em] text-black md:text-[64px] lg:text-[72px]">
+        <div className="mb-10 sm:mb-12">
+          <h2
+            className="
+              text-[40px]
+              font-bold
+              italic
+              leading-[0.98]
+              tracking-[-0.03em]
+              text-black
+              sm:text-[50px]
+              md:text-[64px]
+              lg:text-[72px]
+            "
+          >
             Creative{" "}
             <span className="text-[#5a4bff]">solutions,</span>
             <br />
             delivered
           </h2>
-        </motion.div>
+        </div>
 
         {/* =========================
             STATS
         ========================== */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 border-2 border-black md:grid-cols-2 lg:grid-cols-4"
-        >
+        <div className="grid grid-cols-1 border-2 border-black md:grid-cols-2 lg:grid-cols-4">
           {stats.map(([value, title, subtitle], index) => (
-            <motion.div
+            <div
               key={title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-              }}
-              className="
+              className={`
                 flex
-                min-h-57.5
+                h-32
                 flex-col
                 items-end
                 justify-center
-                border-b-2
-                border-black
                 bg-[#f3f3f3]
-                px-8
-                py-8
+                px-5
                 text-right
-                last:border-b-0
-                md:border-b-0
-                md:border-r-2
-                last:md:border-r-0
-              "
+                border-black
+
+                ${
+                  index !== stats.length - 1
+                    ? "border-b-2 lg:border-b-0 lg:border-r-2"
+                    : ""
+                }
+
+                ${
+                  index === 0 || index === 2
+                    ? "md:border-r-2"
+                    : ""
+                }
+
+                lg:last:border-r-0
+              `}
             >
               {/* Number */}
-              <div className="text-[32px] font-bold italic leading-none text-[#5a4bff]">
+              <div
+                className="
+                  text-[28px]
+                  font-bold
+                  italic
+                  leading-none
+                  text-[#5a4bff]
+                  sm:text-[30px]
+                "
+              >
                 {value}
               </div>
 
               {/* Title */}
-              <div className="mt-3 text-[30px] font-bold italic leading-none text-black">
+              <div
+                className="
+                  mt-1.5
+                  text-[22px]
+                  font-bold
+                  italic
+                  leading-none
+                  text-black
+                  sm:text-[24px]
+                "
+              >
                 {title}
               </div>
 
               {/* Description */}
-              <p className="mt-5 max-w-55 text-[16px] leading-6 text-[#444444]">
+              <p
+                className="
+                  mt-4
+                  whitespace-nowrap
+                  text-[13px]
+                  leading-none
+                  text-[#444444]
+                  sm:text-[14px]
+                "
+              >
                 {subtitle}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* =========================
             WHO WE ARE
@@ -95,13 +123,7 @@ export default function AboutSection() {
         <div className="mt-20 grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
 
           {/* Left Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center lg:justify-start"
-          >
+          <div className="flex justify-center lg:justify-start">
             <Image
               src="/chracter2.svg"
               alt="Flying superhero illustration"
@@ -109,20 +131,35 @@ export default function AboutSection() {
               height={560}
               className="h-auto w-full max-w-140"
             />
-          </motion.div>
+          </div>
 
           {/* Right Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="text-[56px] font-bold leading-none text-black lg:text-[64px]">
+          <div>
+            <h3
+              className="
+                text-[42px]
+                font-bold
+                leading-none
+                text-black
+                sm:text-[52px]
+                lg:text-[64px]
+              "
+            >
               Who We Are
             </h3>
 
-            <div className="mt-6 space-y-8 text-[20px] leading-9 text-[#333333]">
+            <div
+              className="
+                mt-6
+                space-y-6
+                text-[17px]
+                leading-8
+                text-[#333333]
+                sm:space-y-8
+                sm:text-[20px]
+                sm:leading-9
+              "
+            >
               <p>
                 Everyweb Matters is a creative design agency focused on
                 building strong brands through impactful packaging design.
@@ -150,9 +187,10 @@ export default function AboutSection() {
                 and support your brand journey.
               </p>
             </div>
-          </motion.div>
+          </div>
 
         </div>
+
       </div>
     </section>
   );

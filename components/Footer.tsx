@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   FaFacebookF,
@@ -12,7 +13,7 @@ export default function Footer() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Behind EM", href: "/about" },
-    { label: "Capabilities", href: "/services" },
+    { label: "Capabilities", href: "/service" },
     { label: "EM in Action", href: "/works" },
     { label: "Let's Create", href: "/contact" },
   ];
@@ -21,80 +22,70 @@ export default function Footer() {
     {
       label: "Facebook",
       href: "https://www.facebook.com/everywebmatters",
-      icon: <FaFacebookF size={20} />,
+      icon: <FaFacebookF size={16} />,
     },
     {
       label: "Instagram",
       href: "https://www.instagram.com/everywebmatters",
-      icon: <FaInstagram size={20} />,
+      icon: <FaInstagram size={16} />,
     },
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/company/everywebmatters/",
-      icon: <FaLinkedinIn size={20} />,
+      icon: <FaLinkedinIn size={16} />,
     },
     {
       label: "WhatsApp",
       href: "https://wa.me/9698284661",
-      icon: <FaWhatsapp size={22} />,
+      icon: <FaWhatsapp size={18} />,
     },
   ];
 
   return (
-    <footer className="bg-[#efefef] py-16">
-      <div className="mx-auto w-[96vw] max-w-282.5 border border-black bg-white">
+    <footer className="bg-white py-6 sm:py-8">
+      {/* FOOTER CONTAINER */}
+      <div className="mx-auto w-[calc(100%-1rem)] max-w-none border-2 border-black bg-white sm:w-[98vw] lg:w-[97vw]">
 
-        {/* =========================
-            MAIN FOOTER
-        ========================== */}
-        <div className="grid grid-cols-1 lg:grid-cols-[365px_1fr]">
+        {/* MAIN FOOTER */}
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr]">
 
-          {/* =========================
-              LEFT BRAND SECTION
-          ========================== */}
-          <div className="flex flex-col border-b border-black lg:border-b-0 lg:border-r">
+          {/* LEFT BRAND SECTION */}
+          <div className="flex flex-col border-b-2 border-black lg:border-b-0 lg:border-r-2">
 
             {/* Brand + Description */}
-            <div className="flex-1 p-8">
+            <div className="flex-1 p-5 sm:p-6">
 
               {/* Logo */}
               <Link
                 href="/"
-                className="inline-block transition-transform duration-300 hover:scale-[1.02]"
+                className="
+                  inline-flex
+                  items-center
+                  transition-transform
+                  duration-300
+                  hover:scale-[1.02]
+                "
               >
-                <div className="flex items-center">
-
-                  {/* M Logo */}
-                  <div className="mr-2 text-[38px] font-black leading-none tracking-[-0.08em] text-[#3b2a25]">
-                    M
-                  </div>
-
-                  {/* Brand Name */}
-                  <div className="leading-none">
-                    <div className="text-[38px] font-black tracking-[-0.055em] text-[#3b2a25]">
-                      everyweb
-                    </div>
-
-                    <div className="mt-0.75 text-[8px] uppercase tracking-[0.38em] text-[#3b2a25]">
-                      Matters
-                    </div>
-                  </div>
-
-                </div>
+                <Image
+                  src="/EM logo.svg"
+                  alt="EveryWeb Matters"
+                  width={180}
+                  height={50}
+                  priority
+                  className="h-7 w-auto max-w-full object-contain sm:h-8"
+                />
               </Link>
 
               {/* Description */}
-              <p className="mt-7 max-w-75 text-[16px] leading-[1.75] text-[#333333]">
+              <p className="mt-4 max-w-72 text-[14px] leading-relaxed text-[#333333]">
                 We help businesses build stronger brands through strategic
                 branding, impactful graphic design, and modern website
                 development.
               </p>
             </div>
 
-            {/* =========================
-                SOCIAL ICONS
-            ========================== */}
-            <div className="flex gap-4 border-t border-black p-6">
+            {/* SOCIAL ICONS */}
+            <div className="flex flex-wrap gap-2.5 border-t-2 border-black p-4 sm:p-5">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -104,8 +95,8 @@ export default function Footer() {
                   aria-label={social.label}
                   className="
                     flex
-                    h-14
-                    w-14
+                    h-10
+                    w-10
                     items-center
                     justify-center
                     border
@@ -123,20 +114,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* =========================
-              RIGHT CONTENT
-          ========================== */}
-          <div className="grid grid-cols-1 gap-10 p-8 md:grid-cols-3">
+          {/* RIGHT CONTENT */}
+          <div className="grid grid-cols-1 gap-6 p-5 sm:p-6 md:grid-cols-3">
 
-            {/* =========================
-                QUICK LINKS
-            ========================== */}
+            {/* QUICK LINKS */}
             <div>
-              <h3 className="mb-5 text-[20px] font-black text-black underline decoration-2 underline-offset-4">
+              <h3 className="mb-3 text-[16px] font-black text-black underline decoration-2 underline-offset-4">
                 Quick links
               </h3>
 
-              <nav className="space-y-3 text-[18px] text-[#333333]">
+              <nav className="space-y-2 text-[14px] text-[#333333]">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
@@ -154,38 +141,34 @@ export default function Footer() {
               </nav>
             </div>
 
-            {/* =========================
-                SERVICES
-            ========================== */}
+            {/* SERVICES */}
             <div>
-              <h3 className="mb-5 text-[20px] font-black text-black underline decoration-2 underline-offset-4">
+              <h3 className="mb-3 text-[16px] font-black text-black underline decoration-2 underline-offset-4">
                 Services
               </h3>
 
-              <div className="space-y-3 text-[18px] text-[#333333]">
+              <div className="space-y-2 text-[14px] text-[#333333]">
                 <p>Graphic Design</p>
                 <p>Website Development</p>
                 <p>Brand Awareness</p>
               </div>
             </div>
 
-            {/* =========================
-                GET IN TOUCH
-            ========================== */}
+            {/* GET IN TOUCH */}
             <div>
-              <h3 className="mb-5 text-[20px] font-black text-black underline decoration-2 underline-offset-4">
+              <h3 className="mb-3 text-[16px] font-black text-black underline decoration-2 underline-offset-4">
                 Get in Touch
               </h3>
 
-              <div className="space-y-6 text-[#333333]">
+              <div className="space-y-3 text-[#333333]">
 
                 {/* Location */}
                 <div>
-                  <h4 className="mb-2 text-[20px] font-medium text-black">
+                  <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Location
                   </h4>
 
-                  <p className="max-w-67.5 text-[15px] leading-6 text-[#333333]">
+                  <p className="w-full text-[13px] leading-relaxed text-[#333333]">
                     F4 Shop, 13/40, DL Plaza, Kamarajar Road,
                     Melakalakandarkottai, Tiruchirappalli – 620011,
                     Tamil Nadu, India.
@@ -194,14 +177,15 @@ export default function Footer() {
 
                 {/* Email */}
                 <div>
-                  <h4 className="mb-2 text-[20px] font-medium text-black">
+                  <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Email
                   </h4>
 
                   <a
                     href="mailto:contact@everywebmatters.com"
                     className="
-                      text-[15px]
+                      break-all
+                      text-[13px]
                       text-[#333333]
                       transition-colors
                       duration-300
@@ -214,14 +198,14 @@ export default function Footer() {
 
                 {/* Phone */}
                 <div>
-                  <h4 className="mb-2 text-[20px] font-medium text-black">
+                  <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Phone
                   </h4>
 
                   <a
                     href="tel:+919698284661"
                     className="
-                      text-[15px]
+                      text-[13px]
                       text-[#333333]
                       transition-colors
                       duration-300
@@ -238,13 +222,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* =========================
-            COPYRIGHT
-        ========================== */}
-        <div className="border-t border-black py-3 text-center">
-          <p className="text-[14px] text-[#333333]">
-            © Copyright 2025{" "}
-            <span className="underline underline-offset-1">
+        {/* COPYRIGHT */}
+        <div className="border-t-2 border-black py-2.5 text-center">
+          <p className="text-[13px] text-[#333333]">
+            © Copyright 2026{" "}
+            <span className="underline underline-offset-2">
               Everyweb Matters
             </span>{" "}
             – All Rights Reserved.

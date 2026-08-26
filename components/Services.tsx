@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
 
 export default function ServicesSection() {
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
   const services = [
     {
       title: "Graphic Design",
@@ -24,95 +26,141 @@ export default function ServicesSection() {
 
   return (
     <section className="bg-[#f3f3f3] py-16 lg:py-20">
-      <div className="mx-auto w-[96vw] max-w-330">
-        
-        {/* =========================
-            HEADING
-        ========================== */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mb-10 text-center lg:mb-12"
-        >
-          <h2 className="text-[52px] font-bold italic leading-none text-black lg:text-[64px]">
+      <div className="mx-auto w-[calc(100%-2rem)] max-w-330 sm:w-[96vw]">
+
+        {/* HEADING */}
+        <div className="mb-12 text-center lg:mb-14">
+          <h2 className="text-[40px] font-bold italic leading-none text-black sm:text-[52px] lg:text-[64px]">
             What We Do
           </h2>
-        </motion.div>
+        </div>
 
-        {/* =========================
-            SERVICE CARDS
-        ========================== */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-5">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.7,
-                delay: index * 0.1,
-              }}
-              className="
-                flex
-                min-h-140
-                flex-col
-                border-2
-                border-black
-                bg-white
-                p-5
-                shadow-[6px_6px_0_0_#000]
-                transition-transform
-                duration-300
-                hover:-translate-y-1
-              "
-            >
-              {/* Image */}
-              <div className="flex h-58.75 items-center justify-center">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  width={320}
-                  height={320}
-                  className="h-auto w-full max-w-67.5 object-contain"
-                />
-              </div>
+        {/* SERVICE CARDS */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-5">
+          {services.map((service) => {
+            const isHovered = hoveredCard === service.title;
 
-              {/* Content */}
-              <div className="flex flex-1 flex-col">
-                <h3 className="mt-5 text-center text-[34px] font-bold leading-tight text-black lg:text-[38px]">
-                  {service.title}
-                </h3>
-
-                <p className="mx-auto mt-3 max-w-90 text-center text-[16px] leading-7 text-[#444444]">
-                  {service.desc}
-                </p>
-
-                {/* Button */}
-                <div className="mt-auto flex justify-center pt-6">
-                  <button
-                    className="
-                      bg-black
-                      px-7
-                      py-3
-                      text-[19px]
-                      font-semibold
-                      text-white
-                      shadow-[4px_4px_0_0_#5a4bff]
-                      transition-all
+            return (
+              <div
+                key={service.title}
+                onMouseEnter={() => setHoveredCard(service.title)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className={`
+                  flex
+                  min-h-125
+                  cursor-pointer
+                  flex-col
+                  border-2
+                  border-black
+                  bg-white
+                  px-5
+                  pb-5
+                  pt-6
+                  transition-all
+                  duration-300
+                  ease-out
+                  ${
+                    isHovered
+                      ? "-translate-y-3 shadow-[10px_10px_0_0_#5a4bff] border-[#5a4bff]"
+                      : "shadow-[6px_6px_0_0_#000]"
+                  }
+                `}
+              >
+                {/* IMAGE */}
+                <div
+                  className="
+                    flex
+                    h-60
+                    shrink-0
+                    items-center
+                    justify-center
+                    px-2
+                    sm:h-64
+                    lg:h-65
+                  "
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={320}
+                    height={320}
+                    priority
+                    loading="eager"
+                    className={`
+                      h-full
+                      w-full
+                      max-w-65
+                      object-contain
+                      transition-transform
                       duration-300
-                      hover:-translate-y-0.5
+                      ${isHovered ? "scale-105" : "scale-100"}
+                    `}
+                  />
+                </div>
+
+                {/* CONTENT */}
+                <div className="flex flex-1 flex-col">
+
+                  <h3
+                    className="
+                      mt-5
+                      text-center
+                      text-[30px]
+                      font-bold
+                      leading-tight
+                      text-black
+                      sm:text-[34px]
+                      lg:text-[36px]
                     "
                   >
-                    Read More
-                  </button>
+                    {service.title}
+                  </h3>
+
+                  <p
+                    className="
+                      mx-auto
+                      mt-3
+                      w-full
+                      max-w-102.5
+                      text-center
+                      text-[14px]
+                      leading-6
+                      text-[#444444]
+                    "
+                  >
+                    {service.desc}
+                  </p>
+
+                  {/* BUTTON WITH ANIMATION */}
+                  <div className="mt-auto flex justify-center pt-7">
+                    <button
+                      className={`
+                        relative
+                        overflow-hidden
+                        px-7
+                        py-3
+                        text-[19px]
+                        font-semibold
+                        transition-all
+                        duration-300
+                        ease-in-out
+                        ${
+                          isHovered
+                            ? "bg-[#5a4bff] text-white shadow-[4px_4px_0_0_#000] -translate-y-1 scale-105"
+                            : "bg-black text-white shadow-[4px_4px_0_0_#5a4bff]"
+                        }
+                      `}
+                    >
+                      Read More
+                    </button>
+                  </div>
+
                 </div>
               </div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

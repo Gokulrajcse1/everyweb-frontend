@@ -61,7 +61,7 @@ export default function ServicesSection() {
                   ease-out
                   ${
                     isHovered
-                      ? "-translate-y-3 shadow-[10px_10px_0_0_#5a4bff] border-[#5a4bff]"
+                      ? "-translate-y-3 border-[#5a4bff] shadow-[10px_10px_0_0_#5a4bff]"
                       : "shadow-[6px_6px_0_0_#000]"
                   }
                 `}
@@ -84,8 +84,6 @@ export default function ServicesSection() {
                     alt={service.title}
                     width={320}
                     height={320}
-                    priority
-                    loading="eager"
                     className={`
                       h-full
                       w-full
@@ -131,7 +129,7 @@ export default function ServicesSection() {
                     {service.desc}
                   </p>
 
-                  {/* BUTTON WITH ANIMATION */}
+                  {/* BUTTON */}
                   <div className="mt-auto flex justify-center pt-7">
                     <button
                       className={`
@@ -146,7 +144,7 @@ export default function ServicesSection() {
                         ease-in-out
                         ${
                           isHovered
-                            ? "bg-[#5a4bff] text-white shadow-[4px_4px_0_0_#000] -translate-y-1 scale-105"
+                            ? "scale-105 -translate-y-1 bg-[#5a4bff] text-white shadow-[4px_4px_0_0_#000]"
                             : "bg-black text-white shadow-[4px_4px_0_0_#5a4bff]"
                         }
                       `}

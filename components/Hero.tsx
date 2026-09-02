@@ -3,8 +3,16 @@
 import Image from "next/image";
 
 export default function Hero() {
+  const whatsappNumber = "919698284661";
+  const whatsappMessage = encodeURIComponent(
+    "Hi Everyweb Matters, I would like to enquire about your services."
+  );
+
   return (
-    <section className="bg-white pt-12 md:pt-16 lg:pt-20">
+    <section
+      id="hero"
+      className="bg-white pt-12 md:pt-16 lg:pt-20"
+    >
       <div className="mx-auto w-[calc(100%-2rem)] max-w-330 sm:w-[96vw]">
         <div className="grid grid-cols-1 items-start gap-8 pb-10 lg:min-h-155 lg:grid-cols-[0.95fr_1.25fr]">
 
@@ -28,7 +36,11 @@ export default function Hero() {
               through powerful websites, and build lasting presence with creative brand content.
             </p>
 
-            <button
+            {/* Enquire Now */}
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 mt-8
                 inline-flex
@@ -43,22 +55,36 @@ export default function Hero() {
                 shadow-[4px_4px_0_0_#5a4bff]
                 transition-all
                 duration-300
+                ease-out
+                hover:-translate-y-1
+                hover:bg-[#5a4bff]
+                hover:text-white
+                hover:shadow-[5px_5px_0_0_#000]
+                active:translate-y-0
               "
             >
               Enquire Now
-              <span className="text-2xl">→</span>
-            </button>
+              <span className="text-2xl transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
           </div>
 
-          {/* Right Image (Lifted up & Scaled Larger) */}
+          {/* Right Image */}
           <div className="hidden items-start justify-end lg:flex -mt-10 lg:-mt-14">
             <Image
-              src="/chracter2.svg"
+              src="/hero-superman.svg"
               alt="3D Astronaut Rocket Illustration"
-              width={1000}
-              height={1000}
+              width={1100}
+              height={1100}
               priority
-              className="h-auto w-full max-w-170 animate-float lg:max-w-190"
+              className="
+                h-auto
+                w-full
+                max-w-180
+                animate-float
+                lg:max-w-210
+              "
             />
           </div>
 

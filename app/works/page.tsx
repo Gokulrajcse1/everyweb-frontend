@@ -5,12 +5,18 @@ import { useState } from "react";
 import { X, ArrowUpRight } from "lucide-react";
 
 const designs = [
-  ["01.png", "K Seven Millet Malt"], ["02.png", "Packaging Design"],
-  ["03.png", "Brand Identity"], ["04.png", "Product Packaging"],
-  ["05.png", "Creative Campaign"], ["06.png", "Packaging Artwork"],
-  ["07.png", "Brand Design"], ["08.png", "Product Design"],
-  ["09.png", "Visual Design"], ["10.png", "Creative Packaging"],
-  ["11.png", "Brand Communication"], ["12.png", "Marketing Design"],
+  ["01.png", "K Seven Millet Malt"],
+  ["02.png", "Packaging Design"],
+  ["03.png", "Brand Identity"],
+  ["04.png", "Product Packaging"],
+  ["05.png", "Creative Campaign"],
+  ["06.png", "Packaging Artwork"],
+  ["07.png", "Brand Design"],
+  ["08.png", "Product Design"],
+  ["09.png", "Visual Design"],
+  ["10.png", "Creative Packaging"],
+  ["11.png", "Brand Communication"],
+  ["12.png", "Marketing Design"],
   ["13.png", "Packaging & Branding"],
 ];
 
@@ -20,10 +26,9 @@ export default function WorkPage() {
   return (
     <main className="min-h-screen bg-white text-black">
 
-      {/* TOP / HERO */}
+      {/* HERO */}
       <section className="px-6 py-10 md:px-16">
         <div className="mx-auto max-w-350">
-
           <div className="mb-10 border-b border-slate-200 pb-8">
             <p className="text-sm font-semibold uppercase tracking-wider text-[#5a4bff]">
               Selected Work
@@ -44,6 +49,7 @@ export default function WorkPage() {
                 <span className="text-5xl font-bold italic leading-none text-[#5a4bff]">
                   13
                 </span>
+
                 <span className="w-20 text-xs font-bold uppercase leading-tight tracking-wider text-slate-500">
                   Creative
                   <br />
@@ -52,7 +58,6 @@ export default function WorkPage() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -61,18 +66,25 @@ export default function WorkPage() {
         <div className="mx-auto max-w-350">
 
           <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-bold sm:text-2xl">Our Work</h2>
-            <span className="text-sm text-[#666]">01 — 13</span>
+            <h2 className="text-xl font-bold sm:text-2xl">
+              Our Work
+            </h2>
+
+            <span className="text-sm text-[#666]">
+              01 — 13
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* 4 CARDS PER ROW */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {designs.map(([image, title], i) => (
               <button
                 key={image}
+                type="button"
                 onClick={() => setSelected(i)}
-                className="group perspective-[1000px] text-left"
+                className="group text-left"
               >
-                <div className="overflow-hidden border-2 border-black bg-white transition-all duration-500 group-hover:-translate-y-2 group-hover:transform-[rotateX(3deg)_rotateY(-4deg)] group-hover:shadow-[8px_8px_0_0_#5a4bff]">
+                <div className="overflow-hidden border-2 border-black bg-white">
 
                   {/* IMAGE */}
                   <div className="relative aspect-square overflow-hidden bg-[#f5f5f5]">
@@ -80,18 +92,19 @@ export default function WorkPage() {
                       src={`/${image}`}
                       alt={title}
                       fill
-                      sizes="(max-width:640px) 100vw,(max-width:1024px) 50vw,33vw"
-                      className="object-contain transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
+                      className="object-contain transition-transform duration-500 group-hover:scale-110"
                     />
 
-                    <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/25" />
-
-                    <span className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center border-2 border-black bg-white text-sm font-bold transition group-hover:bg-[#5a4bff] group-hover:text-white">
+                    {/* PROJECT NUMBER */}
+                    <span className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center border-2 border-black bg-white text-sm font-bold">
                       {String(i + 1).padStart(2, "0")}
                     </span>
 
-                    <span className="absolute bottom-4 right-4 flex translate-y-3 items-center gap-2 bg-[#5a4bff] px-4 py-2.5 text-sm font-bold text-white opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-                      View <ArrowUpRight className="h-4 w-4" />
+                    {/* VIEW */}
+                    <span className="absolute bottom-4 right-4 flex items-center gap-2 bg-[#5a4bff] px-4 py-2.5 text-sm font-bold text-white">
+                      View
+                      <ArrowUpRight className="h-4 w-4" />
                     </span>
                   </div>
 
@@ -101,13 +114,14 @@ export default function WorkPage() {
                       <p className="mb-1 text-[10px] font-bold uppercase tracking-[.15em] text-[#5a4bff]">
                         Project
                       </p>
+
                       <h3 className="text-[16px] font-bold sm:text-[18px]">
                         {title}
                       </h3>
                     </div>
-                    <ArrowUpRight className="h-5 w-5 transition group-hover:-translate-y-1 group-hover:translate-x-1" />
-                  </div>
 
+                    <ArrowUpRight className="h-5 w-5" />
+                  </div>
                 </div>
               </button>
             ))}
@@ -125,13 +139,16 @@ export default function WorkPage() {
             onClick={(e) => e.stopPropagation()}
             className="relative h-[85vh] w-full max-w-5xl"
           >
+            {/* CLOSE */}
             <button
+              type="button"
               onClick={() => setSelected(null)}
-              className="absolute right-0 top-0 z-10 flex h-11 w-11 items-center justify-center border-2 border-white bg-black text-white transition hover:bg-white hover:text-black"
+              className="absolute right-0 top-0 z-10 flex h-11 w-11 items-center justify-center border-2 border-white bg-black text-white hover:bg-white hover:text-black"
             >
               <X />
             </button>
 
+            {/* PREVIEW IMAGE */}
             <Image
               src={`/${designs[selected][0]}`}
               alt={designs[selected][1]}
@@ -140,16 +157,19 @@ export default function WorkPage() {
               className="object-contain"
             />
 
+            {/* PROJECT TITLE */}
             <div className="absolute bottom-0 left-0 bg-black/75 px-5 py-3 text-white">
               <p className="text-xs font-bold uppercase tracking-widest text-[#8b80ff]">
                 Project {String(selected + 1).padStart(2, "0")}
               </p>
-              <h2 className="text-xl font-bold">{designs[selected][1]}</h2>
+
+              <h2 className="text-xl font-bold">
+                {designs[selected][1]}
+              </h2>
             </div>
           </div>
         </div>
       )}
-
     </main>
   );
 }

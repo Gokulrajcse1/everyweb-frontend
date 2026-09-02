@@ -67,7 +67,7 @@ export default function AboutPage() {
               Who We Are
             </p>
 
-            <h1 className="mt-3 text-4xl font-bold leading-[1] tracking-tight text-slate-900 sm:text-6xl md:text-7xl lg:text-[78px]">
+            <h1 className="mt-3 text-4xl font-bold leading-none tracking-tight text-slate-900 sm:text-6xl md:text-7xl lg:text-[78px]">
               Creative{" "}
               <span className="text-[#5a4bff]">solutions,</span>
               <br />
@@ -174,8 +174,8 @@ export default function AboutPage() {
               />
 
               {/* DECORATIVE CIRCLES */}
-              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full border-[20px] border-white/10" />
-              <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full border-[24px] border-black/10" />
+              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full border-20 border-white/10" />
+              <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full border-24 border-black/10" />
             </div>
 
           </div>
@@ -188,7 +188,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
 
             {/* BUILDING STRONGER BRANDS - LEFT VISUAL */}
-            <div className="flex min-h-72 items-center justify-center bg-[#f3f3f3] px-8 py-12 sm:min-h-80 lg:min-h-[460px]">
+            <div className="flex min-h-72 items-center justify-center bg-[#f3f3f3] px-8 py-12 sm:min-h-80 lg:min-h-115">
 
               {/* TEMPORARY LOGO */}
               <Image

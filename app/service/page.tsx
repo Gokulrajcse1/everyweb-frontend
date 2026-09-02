@@ -117,8 +117,8 @@ const services: Record<ServiceId, Detail[]> = {
 
 const tabs: { id: ServiceId; label: string }[] = [
   { id: "graphic-design", label: "Graphic Design" },
-  { id: "website-development", label: "Website Design" },
   { id: "brand-awareness", label: "Brand Awareness" },
+  { id: "website-development", label: "Website Design" },
 ];
 
 export default function ServicePage() {
@@ -131,8 +131,8 @@ export default function ServicePage() {
 
     if (
       hash === "graphic-design" ||
-      hash === "website-development" ||
-      hash === "brand-awareness"
+      hash === "brand-awareness"||
+      hash === "website-development"
     ) {
       setActiveTab(hash);
 

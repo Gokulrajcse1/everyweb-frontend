@@ -61,8 +61,8 @@ export default function ServicesSection() {
                   ease-out
                   ${
                     isHovered
-                      ? "-translate-y-3 border-[#5a4bff] shadow-[10px_10px_0_0_#5a4bff]"
-                      : "shadow-[6px_6px_0_0_#000]"
+                      ? "-translate-y-3 border-[#5a4bff] shadow-[8px_8px_0_0_#5a4bff]"
+                      : "shadow-[4px_4px_0_0_#000]"
                   }
                 `}
               >
@@ -99,6 +99,7 @@ export default function ServicesSection() {
                 {/* CONTENT */}
                 <div className="flex flex-1 flex-col">
 
+                  {/* TITLE */}
                   <h3
                     className="
                       mt-5
@@ -114,6 +115,7 @@ export default function ServicesSection() {
                     {service.title}
                   </h3>
 
+                  {/* DESCRIPTION */}
                   <p
                     className="
                       mx-auto

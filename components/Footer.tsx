@@ -18,6 +18,21 @@ export default function Footer() {
     { label: "Let's Create", href: "/contact" },
   ];
 
+  const serviceLinks = [
+    {
+      label: "Graphic Design",
+      href: "/service#graphic-design",
+    },
+    {
+      label: "Website Development",
+      href: "/service#website-development",
+    },
+    {
+      label: "Brand Awareness",
+      href: "/service#brand-awareness",
+    },
+  ];
+
   const socialLinks = [
     {
       label: "Facebook",
@@ -29,11 +44,11 @@ export default function Footer() {
       href: "https://www.instagram.com/everywebmatters",
       icon: <FaInstagram size={18} />,
     },
-   {
-  label: "Pinterest",
-  href: "https://pin.it/1wy50ytGE",
-  icon: <FaPinterestP size={16} />,
-},
+    {
+      label: "Pinterest",
+      href: "https://pin.it/1wy50ytGE",
+      icon: <FaPinterestP size={16} />,
+    },
     {
       label: "WhatsApp",
       href: "https://wa.me/9698284661",
@@ -77,37 +92,37 @@ export default function Footer() {
               </p>
             </div>
 
-           {/* SOCIAL MEDIA */}
-<div className="border-t-2 border-black px-6 py-4 sm:px-8">
-  <div className="flex items-center justify-between gap-3">
-    {socialLinks.map((social) => (
-      <a
-        key={social.label}
-        href={social.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={social.label}
-        className="
-          flex
-          h-10
-          w-10
-          shrink-0
-          items-center
-          justify-center
-          border
-          border-black
-          text-black
-          transition-all
-          duration-200
-          hover:bg-black
-          hover:text-white
-        "
-      >
-        {social.icon}
-      </a>
-    ))}
-  </div>
-</div>
+            {/* SOCIAL MEDIA */}
+            <div className="border-t-2 border-black px-6 py-4 sm:px-8">
+              <div className="flex items-center justify-between gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="
+                      flex
+                      h-10
+                      w-10
+                      shrink-0
+                      items-center
+                      justify-center
+                      border
+                      border-black
+                      text-black
+                      transition-all
+                      duration-200
+                      hover:bg-black
+                      hover:text-white
+                    "
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* RIGHT CONTENT */}
@@ -138,11 +153,17 @@ export default function Footer() {
                 Services
               </h3>
 
-              <div className="space-y-2 text-[14px] text-[#333333]">
-                <p>Graphic Design</p>
-                <p>Website Development</p>
-                <p>Brand Awareness</p>
-              </div>
+              <nav className="space-y-2 text-[14px] text-[#333333]">
+                {serviceLinks.map((service) => (
+                  <a
+                    key={service.label}
+                    href={service.href}
+                    className="block transition-colors duration-300 hover:text-[#5a4bff]"
+                  >
+                    {service.label}
+                  </a>
+                ))}
+              </nav>
             </div>
 
             {/* GET IN TOUCH */}
@@ -153,6 +174,7 @@ export default function Footer() {
 
               <div className="space-y-3 text-[#333333]">
 
+                {/* LOCATION */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Location
@@ -165,6 +187,7 @@ export default function Footer() {
                   </p>
                 </div>
 
+                {/* EMAIL */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Email
@@ -178,6 +201,7 @@ export default function Footer() {
                   </a>
                 </div>
 
+                {/* PHONE */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Phone

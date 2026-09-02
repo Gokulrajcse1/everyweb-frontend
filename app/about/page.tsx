@@ -34,9 +34,7 @@ export default function AboutPage() {
     <main className="min-h-screen w-full bg-[#fafafa] text-slate-900">
       <div className="w-full px-5 py-6 sm:px-8 sm:py-8 md:px-12 lg:px-16">
 
-        {/* =========================
-            TOP BAR
-        ========================== */}
+        {/* TOP BAR */}
         <div className="mb-8 flex items-center justify-between sm:mb-10">
           <button
             onClick={() => router.back()}
@@ -58,9 +56,7 @@ export default function AboutPage() {
           </span>
         </div>
 
-        {/* =========================
-            WHO WE ARE
-        ========================== */}
+        {/* WHO WE ARE */}
         <section className="mb-12 sm:mb-14 lg:mb-16">
           <div className="max-w-5xl">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5a4bff]">
@@ -81,9 +77,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* =========================
-            STATS
-        ========================== */}
+        {/* STATS */}
         <section className="mb-14 sm:mb-16 lg:mb-20">
           <div className="grid grid-cols-1 overflow-hidden border border-slate-200 bg-white sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, index) => (
@@ -119,78 +113,78 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* =====================================================
-            FOUNDER SECTION
-        ===================================================== */}
-        <section className="mb-14 overflow-hidden bg-black text-white sm:mb-16 lg:mb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr]">
+        
+       {/* =========================================
+       FOUNDER NOTE
+      ========================================= */}
+<section className="mb-14 overflow-hidden border border-slate-200 bg-white sm:mb-16 lg:mb-20">
+  <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr]">
 
-            {/* FOUNDER - BLACK 60% */}
-            <div className="px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8b80ff]">
-                A Note from the Founder
-              </p>
+    {/* FOUNDER NOTE - LEFT */}
+    <div className="px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14">
 
-              <h2 className="mt-3 max-w-3xl text-3xl font-bold leading-tight sm:text-5xl lg:text-[56px]">
-                Built with purpose.
-                <br />
-                Designed to matter.
-              </h2>
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5a4bff]">
+        A Note from the Founder
+      </p>
 
-              <div className="mt-7 max-w-3xl space-y-5 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-                <p className="border-l-2 border-[#5a4bff] pl-4 font-medium text-white">
-                  Everyweb Matters was built with a simple belief — great design has
-                  the power to shape how people see, remember, and connect with a brand.
-                </p>
+      <h2 className="mt-3 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-[52px]">
+        Built with purpose.
+        <br />
+        Designed to matter.
+      </h2>
 
-                <p>
-                  Our journey began with a passion for creating meaningful visual
-                  experiences that go beyond aesthetics. From impactful packaging to
-                  thoughtful digital design, we focus on helping businesses present
-                  themselves with confidence and clarity.
-                </p>
+      <div className="mt-7 max-w-3xl space-y-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
 
-                <p>
-                  We believe every brand has a story worth telling. Our role is to turn
-                  that story into design that connects, communicates, and creates lasting impact.
-                </p>
-              </div>
+        <p className="border-l-2 border-[#5a4bff] pl-4 font-medium text-slate-800">
+          Everyweb Matters was built with a simple belief — great design has
+          the power to shape how people see, remember, and connect with a brand.
+        </p>
 
-              <div className="mt-7 inline-block bg-[#5a4bff] px-5 py-3 text-sm font-semibold text-white">
-                “Good design gets attention. Great design builds connection.”
-              </div>
-            </div>
+        <p>
+          Our journey began with a passion for creating meaningful visual
+          experiences that go beyond aesthetics. From impactful packaging to
+          thoughtful digital design, we focus on helping businesses present
+          themselves with confidence and clarity.
+        </p>
 
-            {/* FOUNDER - BLUE 40% / FUTURE BANNER AREA */}
-            <div className="relative flex min-h-72 items-center justify-center overflow-hidden bg-[#5a4bff] p-8 sm:min-h-80 lg:min-h-full">
+        <p>
+          We believe every brand has a story worth telling. Our role is to turn
+          that story into design that connects, communicates, and creates lasting
+          impact.
+        </p>
+      </div>
 
-              {/* TEMPORARY LOGO — REPLACE WITH BANNER LATER */}
-              <Image
-                src="/EM logo.svg"
-                alt="Everyweb Matters"
-                width={420}
-                height={160}
-                className="relative z-10 h-auto w-64 brightness-0 invert sm:w-72 lg:w-80"
-              />
+      {/* SIMPLE QUOTE */}
+      <div className="mt-7 border-l-4 border-[#5a4bff] bg-[#f7f7ff] px-5 py-4">
+        <p className="text-sm font-semibold text-slate-800 sm:text-base">
+          “Good design gets attention. Great design builds connection.”
+        </p>
+      </div>
 
-              {/* DECORATIVE CIRCLES */}
-              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full border-20 border-white/10" />
-              <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full border-24 border-black/10" />
-            </div>
+    </div>
 
-          </div>
-        </section>
+    {/* FOUNDER VISUAL - RIGHT */}
+    <div className="flex min-h-72 items-center justify-center bg-[#5a4bff] p-8 sm:min-h-80 lg:min-h-full">
+      <Image
+        src="/EM logo.svg"
+        alt="Everyweb Matters"
+        width={420}
+        height={160}
+        className="h-auto w-60 brightness-0 invert sm:w-68 lg:w-72"
+      />
+    </div>
 
-        {/* =====================================================
-            BUILDING STRONGER BRANDS SECTION
-        ===================================================== */}
+  </div>
+</section>
+
+        {/* =========================================
+            BUILDING STRONGER BRANDS
+        ========================================== */}
         <section className="mb-14 overflow-hidden border border-slate-200 bg-white sm:mb-16 lg:mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
 
-            {/* BUILDING STRONGER BRANDS - LEFT VISUAL */}
+            {/* LEFT VISUAL */}
             <div className="flex min-h-72 items-center justify-center bg-[#f3f3f3] px-8 py-12 sm:min-h-80 lg:min-h-115">
-
-              {/* TEMPORARY LOGO */}
               <Image
                 src="/EM logo.svg"
                 alt="Everyweb Matters Logo"
@@ -206,9 +200,8 @@ export default function AboutPage() {
               />
             </div>
 
-            {/* BUILDING STRONGER BRANDS - RIGHT CONTENT */}
+            {/* RIGHT CONTENT */}
             <div className="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14">
-
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5a4bff]">
                 What We Believe
               </p>
@@ -220,7 +213,6 @@ export default function AboutPage() {
               </h2>
 
               <div className="mt-7 space-y-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-
                 <p className="border-l-2 border-[#5a4bff] pl-4 font-medium text-slate-800">
                   Everyweb Matters is a creative design agency focused on
                   building strong brands through impactful packaging and
@@ -244,22 +236,17 @@ export default function AboutPage() {
                   content and visuals when needed — helping brands stay
                   visible and relevant.
                 </p>
-
               </div>
 
               <div className="mt-7 inline-block w-fit bg-indigo-50 px-5 py-3 text-sm font-semibold text-[#5a4bff]">
                 Design with purpose. Build for growth.
               </div>
-
             </div>
           </div>
         </section>
 
-        {/* =========================
-            CTA
-        ========================== */}
+        {/* CTA */}
         <section className="bg-slate-900 px-6 py-9 text-white sm:px-10 sm:py-12 lg:px-14">
-
           <div className="flex flex-col items-center justify-between gap-7 md:flex-row">
 
             <div className="text-center md:text-left">

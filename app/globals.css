@@ -83,3 +83,7 @@ a {
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
+/* from footer  home option to hero page  navigation */
+html {
+  scroll-behavior: smooth;
+}

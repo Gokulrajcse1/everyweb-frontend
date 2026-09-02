@@ -1,182 +1,299 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+const stats = [
+  {
+    number: "100+",
+    title: "CLIENTS",
+    description: "Businesses we’ve worked with",
+  },
+  {
+    number: "2,000+",
+    title: "DESIGNS",
+    description: "Creative assets delivered",
+  },
+  {
+    number: "50+",
+    title: "WEBSITES",
+    description: "Web experiences developed",
+  },
+  {
+    number: "03",
+    title: "CORE SERVICES",
+    description: "Creative work, real impact",
+  },
+];
 
 export default function AboutPage() {
   const router = useRouter();
 
-  const stats = [
-    { number: '100+', title: 'CLIENTS', description: 'Businesses we’ve worked with' },
-    { number: '2,000+', title: 'DESIGNS', description: 'Creative assets delivered' },
-    { number: '50+', title: 'WEBSITES', description: 'Web experiences developed' },
-    { number: '03', title: 'CORE SERVICES', description: 'Creative work, real impact' },
-  ];
-
   return (
     <main className="min-h-screen w-full bg-[#fafafa] text-slate-900">
-      <div className="w-full px-6 py-10 md:px-16">
+      <div className="w-full px-5 py-6 sm:px-8 sm:py-8 md:px-12 lg:px-16">
 
-        {/* TOP BAR */}
-        <div className="mb-8 flex items-center justify-between">
+        {/* =========================
+            TOP BAR
+        ========================== */}
+        <div className="mb-8 flex items-center justify-between sm:mb-10">
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50"
+            className="
+              inline-flex items-center gap-2
+              border border-slate-200
+              bg-white px-4 py-2
+              text-sm font-medium text-slate-700
+              shadow-sm
+              transition-all duration-300
+              hover:border-black hover:bg-black hover:text-white
+            "
           >
             ← Back
           </button>
 
-          <span className="rounded-full bg-indigo-50 px-3.5 py-1 text-xs font-semibold tracking-wide text-[#5a4bff]">
+          <span className="bg-indigo-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-[#5a4bff]">
             Behind Everyweb
           </span>
         </div>
 
-        {/* HERO TITLE SECTION */}
-        <div className="mb-10 border-b border-slate-200 pb-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[#5a4bff]">
-            Who We Are
-          </p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl md:text-7xl">
-            Creative <span className="text-[#5a4bff]">solutions,</span> delivered.
-          </h1>
-          <p className="mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">
-            We are a dedicated design and digital studio focused on crafting memorable brand experiences and scalable platforms.
-          </p>
-        </div>
+        {/* =========================
+            WHO WE ARE
+        ========================== */}
+        <section className="mb-12 sm:mb-14 lg:mb-16">
+          <div className="max-w-5xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5a4bff]">
+              Who We Are
+            </p>
 
-        {/* STATS SECTION */}
-        <div className="mb-14 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-          <div className="grid grid-cols-1 divide-y divide-slate-100 sm:grid-cols-2 md:grid-cols-4 md:divide-x md:divide-y-0">
-            {stats.map((stat) => (
+            <h1 className="mt-3 text-4xl font-bold leading-[1] tracking-tight text-slate-900 sm:text-6xl md:text-7xl lg:text-[78px]">
+              Creative{" "}
+              <span className="text-[#5a4bff]">solutions,</span>
+              <br />
+              delivered.
+            </h1>
+
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+              We are a dedicated design and digital studio focused on crafting
+              memorable brand experiences and scalable platforms.
+            </p>
+          </div>
+        </section>
+
+        {/* =========================
+            STATS
+        ========================== */}
+        <section className="mb-14 sm:mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 overflow-hidden border border-slate-200 bg-white sm:grid-cols-2 lg:grid-cols-4">
+            {stats.map((stat, index) => (
               <div
                 key={stat.title}
-                className="group p-8 transition-all hover:bg-slate-50"
+                className={`
+                  px-6 py-7
+                  transition-all duration-300
+                  hover:bg-[#f5f5ff]
+                  sm:px-7 sm:py-8
+                  lg:px-6 lg:py-7
+                  ${
+                    index !== 3
+                      ? "border-b border-slate-200 sm:border-b-0 sm:border-r"
+                      : ""
+                  }
+                  ${index === 1 ? "sm:border-r-0 lg:border-r" : ""}
+                `}
               >
-                <div className="text-4xl font-bold tracking-tight text-[#5a4bff]">
+                <div className="text-4xl font-bold italic leading-none tracking-tight text-[#5a4bff] sm:text-5xl">
                   {stat.number}
                 </div>
-                <div className="mt-2 text-xs font-semibold uppercase tracking-wider text-slate-900">
+
+                <div className="mt-2 text-xs font-bold uppercase tracking-[0.12em] text-slate-900 sm:text-sm">
                   {stat.title}
                 </div>
-                <p className="mt-1 text-xs text-slate-500">
+
+                <p className="mt-2 text-xs leading-5 text-slate-500 sm:text-sm">
                   {stat.description}
                 </p>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* CONTENT & BRAND LOGO SECTION */}
-        <div className="mb-14 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12">
-          
-          {/* LEFT: CLEAN LOGO DISPLAY BOX */}
-          <div className="group relative flex min-h-80 items-center justify-center rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-slate-300 lg:col-span-5">
-            <div className="transition-transform duration-300 ease-out group-hover:scale-105">
-              <Image
-                src="/EM logo.svg"
-                alt="Everyweb Logo"
-                width={300}
-                height={120}
-                className="h-auto w-56 md:w-64"
-                priority
-              />
-            </div>
-          </div>
+        {/* =====================================================
+            FOUNDER SECTION
+        ===================================================== */}
+        <section className="mb-14 overflow-hidden bg-black text-white sm:mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr]">
 
-          {/* RIGHT: ABOUT DETAILS */}
-          <div className="flex flex-col justify-center space-y-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:col-span-7 sm:p-10">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Building Stronger Brands
-            </h2>
-
-            <div className="space-y-4 text-base leading-relaxed text-slate-600">
-              <p className="border-l-2 border-[#5a4bff] pl-4 font-medium text-slate-800">
-                Everyweb Matters is a creative design agency focused on building strong brands through impactful packaging and visual design.
+            {/* FOUNDER - BLACK 60% */}
+            <div className="px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8b80ff]">
+                A Note from the Founder
               </p>
-              <p>
-                We help businesses create eye-catching product packaging that stands out in the market and connects directly with customers.
-              </p>
-              <p>
-                Beyond packaging, we support brands in growing their digital presence with professional website design, ensuring they have a bold, credible online identity.
-              </p>
-            </div>
 
-            <div className="pt-2">
-              <div className="inline-block rounded-xl bg-indigo-50/70 px-5 py-3 text-sm font-semibold text-[#5a4bff]">
-                &ldquo;Design with purpose. Build for growth.&rdquo;
+              <h2 className="mt-3 max-w-3xl text-3xl font-bold leading-tight sm:text-5xl lg:text-[56px]">
+                Built with purpose.
+                <br />
+                Designed to matter.
+              </h2>
+
+              <div className="mt-7 max-w-3xl space-y-5 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+                <p className="border-l-2 border-[#5a4bff] pl-4 font-medium text-white">
+                  Everyweb Matters was built with a simple belief — great design has
+                  the power to shape how people see, remember, and connect with a brand.
+                </p>
+
+                <p>
+                  Our journey began with a passion for creating meaningful visual
+                  experiences that go beyond aesthetics. From impactful packaging to
+                  thoughtful digital design, we focus on helping businesses present
+                  themselves with confidence and clarity.
+                </p>
+
+                <p>
+                  We believe every brand has a story worth telling. Our role is to turn
+                  that story into design that connects, communicates, and creates lasting impact.
+                </p>
+              </div>
+
+              <div className="mt-7 inline-block bg-[#5a4bff] px-5 py-3 text-sm font-semibold text-white">
+                “Good design gets attention. Great design builds connection.”
               </div>
             </div>
-          </div>
 
-        </div>
-         {/* CONTENT & BRAND LOGO SECTION */}
-        <div className="mb-14 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12">
-          
-          {/* LEFT: CLEAN LOGO DISPLAY BOX */}
-          <div className="group relative flex min-h-80 items-center justify-center rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-slate-300 lg:col-span-5">
-            <div className="transition-transform duration-300 ease-out group-hover:scale-105">
+            {/* FOUNDER - BLUE 40% / FUTURE BANNER AREA */}
+            <div className="relative flex min-h-72 items-center justify-center overflow-hidden bg-[#5a4bff] p-8 sm:min-h-80 lg:min-h-full">
+
+              {/* TEMPORARY LOGO — REPLACE WITH BANNER LATER */}
               <Image
                 src="/EM logo.svg"
-                alt="Everyweb Logo"
-                width={300}
-                height={120}
-                className="h-auto w-56 md:w-64"
-                priority
+                alt="Everyweb Matters"
+                width={420}
+                height={160}
+                className="relative z-10 h-auto w-64 brightness-0 invert sm:w-72 lg:w-80"
+              />
+
+              {/* DECORATIVE CIRCLES */}
+              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full border-[20px] border-white/10" />
+              <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full border-[24px] border-black/10" />
+            </div>
+
+          </div>
+        </section>
+
+        {/* =====================================================
+            BUILDING STRONGER BRANDS SECTION
+        ===================================================== */}
+        <section className="mb-14 overflow-hidden border border-slate-200 bg-white sm:mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
+
+            {/* BUILDING STRONGER BRANDS - LEFT VISUAL */}
+            <div className="flex min-h-72 items-center justify-center bg-[#f3f3f3] px-8 py-12 sm:min-h-80 lg:min-h-[460px]">
+
+              {/* TEMPORARY LOGO */}
+              <Image
+                src="/EM logo.svg"
+                alt="Everyweb Matters Logo"
+                width={420}
+                height={160}
+                className="
+                  h-auto w-64 object-contain
+                  transition-transform duration-500
+                  hover:scale-105
+                  sm:w-72
+                  lg:w-80
+                "
               />
             </div>
-          </div>
 
-          {/* RIGHT: ABOUT DETAILS */}
-          <div className="flex flex-col justify-center space-y-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:col-span-7 sm:p-10">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              A Note from the Founder
-            </h2>
+            {/* BUILDING STRONGER BRANDS - RIGHT CONTENT */}
+            <div className="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14">
 
-            <div className="space-y-4 text-base leading-relaxed text-slate-600">
-              <p className="border-l-2 border-[#5a4bff] pl-4 font-medium text-slate-800">
-                Everyweb Matters was built with a simple belief — great design has the power to shape how people see, remember, and connect with a brand.
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5a4bff]">
+                What We Believe
               </p>
-              <p>
-                Our journey began with a passion for creating meaningful visual experiences that go beyond aesthetics. 
-                From impactful packaging to thoughtful digital design, we focus on helping businesses present themselves with confidence and clarity.
-              </p>
-              <p>
-                We believe every brand has a story worth telling. Our role is to turn that story into design that connects, communicates, and creates lasting impact.
-              </p>
-            </div>
 
-            <div className="pt-2">
-              <div className="inline-block rounded-xl bg-indigo-50/70 px-5 py-3 text-sm font-semibold text-[#5a4bff]">
-                &ldquo;Good design gets attention. Great design builds connection.&rdquo;
+              <h2 className="mt-3 text-3xl font-bold leading-tight text-slate-900 sm:text-5xl lg:text-[52px]">
+                Building
+                <br className="hidden sm:block" />
+                Stronger Brands
+              </h2>
+
+              <div className="mt-7 space-y-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+
+                <p className="border-l-2 border-[#5a4bff] pl-4 font-medium text-slate-800">
+                  Everyweb Matters is a creative design agency focused on
+                  building strong brands through impactful packaging and
+                  visual design.
+                </p>
+
+                <p>
+                  We help businesses create eye-catching product packaging
+                  that stands out in the market and connects directly with
+                  customers.
+                </p>
+
+                <p>
+                  Beyond packaging, we support brands in growing their digital
+                  presence with professional website design, ensuring they
+                  have a bold, credible online identity.
+                </p>
+
+                <p>
+                  We also provide brand awareness support through creative
+                  content and visuals when needed — helping brands stay
+                  visible and relevant.
+                </p>
+
               </div>
+
+              <div className="mt-7 inline-block w-fit bg-indigo-50 px-5 py-3 text-sm font-semibold text-[#5a4bff]">
+                Design with purpose. Build for growth.
+              </div>
+
             </div>
           </div>
+        </section>
 
-        </div>
+        {/* =========================
+            CTA
+        ========================== */}
+        <section className="bg-slate-900 px-6 py-9 text-white sm:px-10 sm:py-12 lg:px-14">
 
+          <div className="flex flex-col items-center justify-between gap-7 md:flex-row">
 
-        {/* CTA FOOTER BANNER */}
-        <div className="rounded-2xl bg-slate-900 p-8 text-white shadow-md sm:p-12">
-          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="text-center md:text-left">
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#8b80ff]">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8b80ff]">
                 Ready to create?
               </span>
-              <h2 className="mt-1 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
                 Let&apos;s make it matter.
               </h2>
             </div>
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#5a4bff] px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#4839eb] active:scale-[0.99]"
+              className="
+                inline-flex items-center gap-2
+                bg-[#5a4bff]
+                px-7 py-3.5
+                text-sm font-semibold text-white
+                shadow-[4px_4px_0_0_#ffffff]
+                transition-all duration-300
+                hover:-translate-y-1
+                hover:bg-white
+                hover:text-black
+                hover:shadow-[5px_5px_0_0_#5a4bff]
+                active:translate-y-0
+              "
             >
               Let&apos;s Create →
             </Link>
+
           </div>
-        </div>
-    
+        </section>
+
       </div>
     </main>
   );

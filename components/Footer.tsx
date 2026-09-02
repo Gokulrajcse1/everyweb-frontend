@@ -11,29 +11,12 @@ import {
 
 export default function Footer() {
   const navItems = [
-    { label: "Home", href: "/#hero" },
+    { label: "Home", href: "/" },
     { label: "Behind EM", href: "/about" },
     { label: "Capabilities", href: "/service" },
     { label: "EM in Action", href: "/works" },
     { label: "Let's Create", href: "/contact" },
   ];
-
-  // SERVICE LINKS
-  // These IDs MUST match the IDs used inside app/service/page.tsx
- const serviceLinks = [
-  {
-    label: "Graphic Design",
-    href: "/service#graphic-design",
-  },
-  {
-    label: "Website Development",
-    href: "/service#website-development",
-  },
-  {
-    label: "Brand Awareness",
-    href: "/service#brand-awareness",
-  },
-];
 
   const socialLinks = [
     {
@@ -46,11 +29,11 @@ export default function Footer() {
       href: "https://www.instagram.com/everywebmatters",
       icon: <FaInstagram size={18} />,
     },
-    {
-      label: "Pinterest",
-      href: "https://pin.it/1wy50ytGE",
-      icon: <FaPinterestP size={16} />,
-    },
+   {
+  label: "Pinterest",
+  href: "https://pin.it/1wy50ytGE",
+  icon: <FaPinterestP size={16} />,
+},
     {
       label: "WhatsApp",
       href: "https://wa.me/9698284661",
@@ -60,63 +43,88 @@ export default function Footer() {
 
   return (
     <footer className="bg-white py-6 sm:py-8">
-      <div className="mx-auto w-[calc(100%-1rem)] border-2 border-black bg-white sm:w-[98vw] lg:w-[97vw]">
+      <div className="mx-auto w-[calc(100%-1rem)] max-w-none border-2 border-black bg-white sm:w-[98vw] lg:w-[97vw]">
+
         {/* MAIN FOOTER */}
         <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr]">
-          {/* BRAND */}
+
+          {/* LEFT BRAND SECTION */}
           <div className="flex flex-col border-b-2 border-black lg:border-b-0 lg:border-r-2">
+
+            {/* BRAND */}
             <div className="flex-1 p-5 sm:p-6">
+
+              {/* LOGO */}
               <Link
-                href="/#hero"
-                className="inline-flex transition-transform hover:scale-[1.02]"
+                href="/"
+                className="inline-flex items-center transition-transform duration-300 hover:scale-[1.02]"
               >
                 <Image
                   src="/EM logo.svg"
                   alt="EveryWeb Matters"
                   width={220}
                   height={60}
-                  className="h-10 w-auto sm:h-11"
+                  priority
+                  className="h-10 w-auto max-w-full object-contain sm:h-11"
                 />
               </Link>
 
-              <p className="mt-4 max-w-72 text-[14px] leading-relaxed text-[#333]">
+              {/* DESCRIPTION */}
+              <p className="mt-4 max-w-72 text-[14px] leading-relaxed text-[#333333]">
                 We help businesses build stronger brands through strategic
                 branding, impactful graphic design, and modern website
                 development.
               </p>
             </div>
 
-            {/* SOCIAL */}
-            <div className="flex justify-center gap-2.5 border-t-2 border-black p-4 sm:p-5">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center border border-black text-black transition-all hover:bg-black hover:text-white"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
+           {/* SOCIAL MEDIA */}
+<div className="border-t-2 border-black px-6 py-4 sm:px-8">
+  <div className="flex items-center justify-between gap-3">
+    {socialLinks.map((social) => (
+      <a
+        key={social.label}
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={social.label}
+        className="
+          flex
+          h-10
+          w-10
+          shrink-0
+          items-center
+          justify-center
+          border
+          border-black
+          text-black
+          transition-all
+          duration-200
+          hover:bg-black
+          hover:text-white
+        "
+      >
+        {social.icon}
+      </a>
+    ))}
+  </div>
+</div>
           </div>
 
-          {/* RIGHT SIDE */}
+          {/* RIGHT CONTENT */}
           <div className="grid grid-cols-1 gap-6 p-5 sm:p-6 md:grid-cols-3">
+
             {/* QUICK LINKS */}
             <div>
-              <h3 className="mb-3 text-[16px] font-black underline decoration-2 underline-offset-4">
+              <h3 className="mb-3 text-[16px] font-black text-black underline decoration-2 underline-offset-4">
                 Quick links
               </h3>
 
-              <nav className="space-y-2 text-[14px]">
+              <nav className="space-y-2 text-[14px] text-[#333333]">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="block transition-colors hover:text-[#5a4bff]"
+                    className="block transition-colors duration-300 hover:text-[#5a4bff]"
                   >
                     {item.label}
                   </Link>
@@ -126,44 +134,37 @@ export default function Footer() {
 
             {/* SERVICES */}
             <div>
-              <h3 className="mb-3 text-[16px] font-black underline decoration-2 underline-offset-4">
+              <h3 className="mb-3 text-[16px] font-black text-black underline decoration-2 underline-offset-4">
                 Services
               </h3>
 
-             <nav className="space-y-2 text-[14px]">
-  {serviceLinks.map((service) => (
-    <a
-      key={service.label}
-      href={service.href}
-      className="block transition-colors hover:text-[#5a4bff]"
-    >
-      {service.label}
-    </a>
-  ))}
-</nav>
+              <div className="space-y-2 text-[14px] text-[#333333]">
+                <p>Graphic Design</p>
+                <p>Website Development</p>
+                <p>Brand Awareness</p>
+              </div>
             </div>
 
-            {/* CONTACT */}
+            {/* GET IN TOUCH */}
             <div>
-              <h3 className="mb-3 text-[16px] font-black underline decoration-2 underline-offset-4">
+              <h3 className="mb-3 text-[16px] font-black text-black underline decoration-2 underline-offset-4">
                 Get in Touch
               </h3>
 
-              <div className="space-y-3 text-[#333]">
-                {/* LOCATION */}
+              <div className="space-y-3 text-[#333333]">
+
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Location
                   </h4>
 
-                  <p className="text-[13px] leading-relaxed">
+                  <p className="w-full text-[13px] leading-relaxed text-[#333333]">
                     F4 Shop, 13/40, DL Plaza, Kamarajar Road,
                     Melakalakandarkottai, Tiruchirappalli – 620011,
                     Tamil Nadu, India.
                   </p>
                 </div>
 
-                {/* EMAIL */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Email
@@ -171,13 +172,12 @@ export default function Footer() {
 
                   <a
                     href="mailto:contact@everywebmatters.com"
-                    className="break-all text-[13px] hover:text-[#5a4bff]"
+                    className="break-all text-[13px] text-[#333333] transition-colors duration-300 hover:text-[#5a4bff]"
                   >
                     contact@everywebmatters.com
                   </a>
                 </div>
 
-                {/* PHONE */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Phone
@@ -185,19 +185,21 @@ export default function Footer() {
 
                   <a
                     href="tel:+919698284661"
-                    className="text-[13px] hover:text-[#5a4bff]"
+                    className="text-[13px] text-[#333333] transition-colors duration-300 hover:text-[#5a4bff]"
                   >
                     +91 96982 84661
                   </a>
                 </div>
+
               </div>
             </div>
+
           </div>
         </div>
 
         {/* COPYRIGHT */}
         <div className="border-t-2 border-black py-2.5 text-center">
-          <p className="text-[13px] text-[#333]">
+          <p className="text-[13px] text-[#333333]">
             © Copyright 2026{" "}
             <span className="underline underline-offset-2">
               Everyweb Matters
@@ -205,6 +207,7 @@ export default function Footer() {
             – All Rights Reserved.
           </p>
         </div>
+
       </div>
     </footer>
   );

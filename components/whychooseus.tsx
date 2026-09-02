@@ -189,20 +189,19 @@ export default function WhyChooseUs() {
               lg:-mb-20
             "
           >
-            <Image
-              src="/chracter2.svg"
-              alt="Why choose us illustration"
-              width={750}
-              height={750}
-              priority
-              className="
-                h-auto
-                w-full
-                max-w-155
-                object-contain
-                lg:max-w-125
-              "
-            />
+           <Image
+  src="/whychoose-usCharacter.svg"
+  alt="Why choose us illustration"
+  width={750}
+  height={750}
+  priority
+  className="
+    h-auto
+    w-full
+    max-w-140
+    object-contain
+    lg:max-w-100
+  "/>
           </div>
         </div>
       </div>

@@ -11,11 +11,17 @@ import {
 
 export default function Footer() {
   const navItems = [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "/#hero" },
     { label: "Behind EM", href: "/about" },
     { label: "Capabilities", href: "/service" },
     { label: "EM in Action", href: "/works" },
     { label: "Let's Create", href: "/contact" },
+  ];
+
+  const serviceLinks = [
+    { label: "Graphic Design", href: "/service" },
+    { label: "Website Development", href: "/service" },
+    { label: "Brand Awareness", href: "/service" },
   ];
 
   const socialLinks = [
@@ -29,11 +35,11 @@ export default function Footer() {
       href: "https://www.instagram.com/everywebmatters",
       icon: <FaInstagram size={18} />,
     },
-   {
-  label: "Pinterest",
-  href: "https://pin.it/1wy50ytGE",
-  icon: <FaPinterestP size={16} />,
-},
+    {
+      label: "Pinterest",
+      href: "https://pin.it/1wy50ytGE",
+      icon: <FaPinterestP size={16} />,
+    },
     {
       label: "WhatsApp",
       href: "https://wa.me/9698284661",
@@ -121,7 +127,12 @@ export default function Footer() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="block transition-colors duration-300 hover:text-[#5a4bff]"
+                    className="
+                      block
+                      transition-colors
+                      duration-300
+                      hover:text-[#5a4bff]
+                    "
                   >
                     {item.label}
                   </Link>
@@ -135,11 +146,22 @@ export default function Footer() {
                 Services
               </h3>
 
-              <div className="space-y-2 text-[14px] text-[#333333]">
-                <p>Graphic Design</p>
-                <p>Website Development</p>
-                <p>Brand Awareness</p>
-              </div>
+              <nav className="space-y-2 text-[14px] text-[#333333]">
+                {serviceLinks.map((service) => (
+                  <Link
+                    key={service.label}
+                    href={service.href}
+                    className="
+                      block
+                      transition-colors
+                      duration-300
+                      hover:text-[#5a4bff]
+                    "
+                  >
+                    {service.label}
+                  </Link>
+                ))}
+              </nav>
             </div>
 
             {/* GET IN TOUCH */}
@@ -150,6 +172,7 @@ export default function Footer() {
 
               <div className="space-y-3 text-[#333333]">
 
+                {/* LOCATION */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Location
@@ -162,6 +185,7 @@ export default function Footer() {
                   </p>
                 </div>
 
+                {/* EMAIL */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Email
@@ -169,12 +193,20 @@ export default function Footer() {
 
                   <a
                     href="mailto:contact@everywebmatters.com"
-                    className="break-all text-[13px] text-[#333333] transition-colors duration-300 hover:text-[#5a4bff]"
+                    className="
+                      break-all
+                      text-[13px]
+                      text-[#333333]
+                      transition-colors
+                      duration-300
+                      hover:text-[#5a4bff]
+                    "
                   >
                     contact@everywebmatters.com
                   </a>
                 </div>
 
+                {/* PHONE */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Phone
@@ -182,7 +214,13 @@ export default function Footer() {
 
                   <a
                     href="tel:+919698284661"
-                    className="text-[13px] text-[#333333] transition-colors duration-300 hover:text-[#5a4bff]"
+                    className="
+                      text-[13px]
+                      text-[#333333]
+                      transition-colors
+                      duration-300
+                      hover:text-[#5a4bff]
+                    "
                   >
                     +91 96982 84661
                   </a>

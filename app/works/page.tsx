@@ -1,208 +1,154 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
+import { X, ArrowUpRight } from "lucide-react";
 
 const designs = [
-  {
-    id: 1,
-    image: "/01.png",
-    title: "K Seven Millet Malt",
-  },
-  {
-    id: 2,
-    image: "/02.png",
-    title: "Packaging Design",
-  },
-  {
-    id: 3,
-    image: "/03.png",
-    title: "Brand Identity",
-  },
-  {
-    id: 4,
-    image: "/04.png",
-    title: "Product Packaging",
-  },
-  {
-    id: 5,
-    image: "/05.png",
-    title: "Creative Campaign",
-  },
-  {
-    id: 6,
-    image: "/06.png",
-    title: "Packaging Artwork",
-  },
-  {
-    id: 7,
-    image: "/07.png",
-    title: "Brand Design",
-  },
-  {
-    id: 8,
-    image: "/08.png",
-    title: "Product Design",
-  },
-  {
-    id: 9,
-    image: "/09.png",
-    title: "Visual Design",
-  },
-  {
-    id: 10,
-    image: "/10.png",
-    title: "Creative Packaging",
-  },
-  {
-    id: 11,
-    image: "/11.png",
-    title: "Brand Communication",
-  },
-  {
-    id: 12,
-    image: "/12.png",
-    title: "Marketing Design",
-  },
-  {
-    id: 13,
-    image: "/13.png",
-    title: "Packaging & Branding",
-  },
+  ["01.png", "K Seven Millet Malt"], ["02.png", "Packaging Design"],
+  ["03.png", "Brand Identity"], ["04.png", "Product Packaging"],
+  ["05.png", "Creative Campaign"], ["06.png", "Packaging Artwork"],
+  ["07.png", "Brand Design"], ["08.png", "Product Design"],
+  ["09.png", "Visual Design"], ["10.png", "Creative Packaging"],
+  ["11.png", "Brand Communication"], ["12.png", "Marketing Design"],
+  ["13.png", "Packaging & Branding"],
 ];
 
 export default function WorkPage() {
+  const [selected, setSelected] = useState<number | null>(null);
+
   return (
-    <main className="bg-white text-black">
+    <main className="min-h-screen bg-white text-black">
 
-      {/* =========================
-          HERO / TITLE
-      ========================== */}
-      <section className="px-6 pb-10 pt-10 sm:px-10 sm:pb-12 sm:pt-12 lg:px-16 lg:pb-14 lg:pt-14">
-        <div className="mx-auto max-w-[1400px]">
-          <h1
-            className="
-              text-[48px]
-              font-bold
-              italic
-              leading-[0.95]
-              tracking-[-0.04em]
-              sm:text-[64px]
-              md:text-[76px]
-              lg:text-[88px]
-            "
-          >
-            EM in <span className="text-[#5a4bff]">Action</span>
-          </h1>
+      {/* TOP / HERO */}
+      <section className="px-6 py-10 md:px-16">
+        <div className="mx-auto max-w-350">
 
-          <p
-            className="
-              mt-5
-              max-w-[720px]
-              text-[17px]
-              leading-7
-              text-[#333333]
-              sm:mt-6
-              sm:text-[19px]
-              sm:leading-8
-              lg:text-[20px]
-            "
-          >
-            A showcase of creative work designed by Everyweb Matters —
-            from impactful packaging and branding to visuals that help
-            businesses stand out.
-          </p>
-        </div>
-      </section>
+          <div className="mb-10 border-b border-slate-200 pb-8">
+            <p className="text-sm font-semibold uppercase tracking-wider text-[#5a4bff]">
+              Selected Work
+            </p>
 
-      {/* =========================
-          DESIGN SHOWCASE
-      ========================== */}
-      <section className="px-4 pb-12 sm:px-6 sm:pb-16 lg:px-10 lg:pb-20">
-        <div className="mx-auto max-w-[1400px]">
+            <h1 className="mt-2 text-4xl font-bold italic tracking-tight sm:text-6xl md:text-7xl lg:text-[88px] lg:leading-[.95]">
+              EM in <span className="text-[#5a4bff]">Action</span>
+            </h1>
 
-          <div
-            className="
-              grid
-              grid-cols-1
-              gap-5
-              sm:grid-cols-2
-              lg:grid-cols-3
-            "
-          >
-            {designs.map((design) => (
-              <div
-                key={design.id}
-                className="
-                  group
-                  overflow-hidden
-                  border-2
-                  border-black
-                  bg-[#f5f5f5]
-                "
-              >
-                {/* Image */}
-                <div className="relative aspect-square w-full overflow-hidden bg-white">
-                  <Image
-                    src={design.image}
-                    alt={design.title}
-                    fill
-                    sizes="
-                      (max-width: 640px) 100vw,
-                      (max-width: 1024px) 50vw,
-                      33vw
-                    "
-                    className="
-                      object-contain
-                      transition-transform
-                      duration-500
-                      ease-out
-                      group-hover:scale-[1.03]
-                    "
-                  />
-                </div>
+            <div className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <p className="max-w-180 text-base leading-7 text-slate-600 sm:text-lg">
+                A showcase of creative work designed by Everyweb Matters —
+                from impactful packaging and branding to visuals that help
+                businesses stand out.
+              </p>
 
-                {/* Design Info */}
-                <div
-                  className="
-                    flex
-                    items-center
-                    justify-between
-                    border-t-2
-                    border-black
-                    px-4
-                    py-4
-                    sm:px-5
-                    sm:py-5
-                  "
-                >
-                  <h2
-                    className="
-                      text-[16px]
-                      font-bold
-                      leading-tight
-                      sm:text-[18px]
-                    "
-                  >
-                    {design.title}
-                  </h2>
-
-                  <span
-                    className="
-                      text-[13px]
-                      font-bold
-                      text-[#5a4bff]
-                      sm:text-[14px]
-                    "
-                  >
-                    {design.id}
-                  </span>
-                </div>
+              <div className="flex shrink-0 items-center gap-3">
+                <span className="text-5xl font-bold italic leading-none text-[#5a4bff]">
+                  13
+                </span>
+                <span className="w-20 text-xs font-bold uppercase leading-tight tracking-wider text-slate-500">
+                  Creative
+                  <br />
+                  Projects
+                </span>
               </div>
-            ))}
+            </div>
           </div>
 
         </div>
       </section>
+
+      {/* WORK SHOWCASE */}
+      <section className="px-4 pb-20 sm:px-6 lg:px-10">
+        <div className="mx-auto max-w-350">
+
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-xl font-bold sm:text-2xl">Our Work</h2>
+            <span className="text-sm text-[#666]">01 — 13</span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {designs.map(([image, title], i) => (
+              <button
+                key={image}
+                onClick={() => setSelected(i)}
+                className="group perspective-[1000px] text-left"
+              >
+                <div className="overflow-hidden border-2 border-black bg-white transition-all duration-500 group-hover:-translate-y-2 group-hover:transform-[rotateX(3deg)_rotateY(-4deg)] group-hover:shadow-[8px_8px_0_0_#5a4bff]">
+
+                  {/* IMAGE */}
+                  <div className="relative aspect-square overflow-hidden bg-[#f5f5f5]">
+                    <Image
+                      src={`/${image}`}
+                      alt={title}
+                      fill
+                      sizes="(max-width:640px) 100vw,(max-width:1024px) 50vw,33vw"
+                      className="object-contain transition-transform duration-700 group-hover:scale-110"
+                    />
+
+                    <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/25" />
+
+                    <span className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center border-2 border-black bg-white text-sm font-bold transition group-hover:bg-[#5a4bff] group-hover:text-white">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    <span className="absolute bottom-4 right-4 flex translate-y-3 items-center gap-2 bg-[#5a4bff] px-4 py-2.5 text-sm font-bold text-white opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                      View <ArrowUpRight className="h-4 w-4" />
+                    </span>
+                  </div>
+
+                  {/* PROJECT INFO */}
+                  <div className="flex items-center justify-between border-t-2 border-black px-4 py-4 sm:px-5">
+                    <div>
+                      <p className="mb-1 text-[10px] font-bold uppercase tracking-[.15em] text-[#5a4bff]">
+                        Project
+                      </p>
+                      <h3 className="text-[16px] font-bold sm:text-[18px]">
+                        {title}
+                      </h3>
+                    </div>
+                    <ArrowUpRight className="h-5 w-5 transition group-hover:-translate-y-1 group-hover:translate-x-1" />
+                  </div>
+
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FULLSCREEN PREVIEW */}
+      {selected !== null && (
+        <div
+          onClick={() => setSelected(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-5 backdrop-blur-sm"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative h-[85vh] w-full max-w-5xl"
+          >
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute right-0 top-0 z-10 flex h-11 w-11 items-center justify-center border-2 border-white bg-black text-white transition hover:bg-white hover:text-black"
+            >
+              <X />
+            </button>
+
+            <Image
+              src={`/${designs[selected][0]}`}
+              alt={designs[selected][1]}
+              fill
+              sizes="100vw"
+              className="object-contain"
+            />
+
+            <div className="absolute bottom-0 left-0 bg-black/75 px-5 py-3 text-white">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#8b80ff]">
+                Project {String(selected + 1).padStart(2, "0")}
+              </p>
+              <h2 className="text-xl font-bold">{designs[selected][1]}</h2>
+            </div>
+          </div>
+        </div>
+      )}
 
     </main>
   );

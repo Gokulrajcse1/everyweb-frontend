@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ServicesSection() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
@@ -11,16 +12,19 @@ export default function ServicesSection() {
       title: "Graphic Design",
       image: "/service-graphic.png",
       desc: "We design creative visuals that support your brand identity across packaging, websites, & everywhere",
+      href: "/service#graphic-design",
     },
     {
       title: "Website Design",
       image: "/service-website.png",
       desc: "We build professional websites that strengthen your brand presence and help your business grow online.",
+      href: "/service#website-development",
     },
     {
       title: "Brand Awareness",
       image: "/service-brand.png",
       desc: "We support your brand with creative content, videos, and social media visuals to improve visibility.",
+      href: "/service#brand-awareness",
     },
   ];
 
@@ -43,7 +47,9 @@ export default function ServicesSection() {
             return (
               <div
                 key={service.title}
-                onMouseEnter={() => setHoveredCard(service.title)}
+                onMouseEnter={() =>
+                  setHoveredCard(service.title)
+                }
                 onMouseLeave={() => setHoveredCard(null)}
                 className={`
                   flex
@@ -91,7 +97,11 @@ export default function ServicesSection() {
                       object-contain
                       transition-transform
                       duration-300
-                      ${isHovered ? "scale-105" : "scale-100"}
+                      ${
+                        isHovered
+                          ? "scale-105"
+                          : "scale-100"
+                      }
                     `}
                   />
                 </div>
@@ -133,7 +143,8 @@ export default function ServicesSection() {
 
                   {/* BUTTON */}
                   <div className="mt-auto flex justify-center pt-7">
-                    <button
+                    <Link
+                      href={service.href}
                       className={`
                         relative
                         overflow-hidden
@@ -152,7 +163,7 @@ export default function ServicesSection() {
                       `}
                     >
                       Read More
-                    </button>
+                    </Link>
                   </div>
 
                 </div>

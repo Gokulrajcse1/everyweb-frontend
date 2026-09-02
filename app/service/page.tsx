@@ -21,185 +21,142 @@ type ServiceId =
   | "website-development"
   | "brand-awareness";
 
-const services: Record<
-  ServiceId,
-  {
-    title: string;
-    details: {
-      title: string;
-      description: string;
-      icon: React.ElementType;
-    }[];
-  }
-> = {
-  "graphic-design": {
-    title: "Graphic Design",
-    details: [
-      {
-        title: "Logo Design",
-        description:
-          "Memorable logos that define your brand identity.",
-        icon: Pencil,
-      },
-      {
-        title: "Packaging Design",
-        description:
-          "We design impactful packaging that makes your product stand out and attract customers instantly.",
-        icon: Box,
-      },
-      {
-        title: "Brochure Design",
-        description:
-          "We design clean and professional brochures that present your brand and information clearly.",
-        icon: FileText,
-      },
-      {
-        title: "Poster Design",
-        description:
-          "We create impactful posters that attract attention and deliver your message effectively.",
-        icon: ImageIcon,
-      },
-    ],
-  },
-
-  "website-development": {
-    title: "Website Design",
-    details: [
-      {
-        title: "E-Commerce Website",
-        description:
-          "Professional e-commerce websites designed to showcase your products and help your business grow online.",
-        icon: Monitor,
-      },
-      {
-        title: "Business Website",
-        description:
-          "Modern business websites that build credibility and create a strong online presence.",
-        icon: Smartphone,
-      },
-      {
-        title: "Landing Pages",
-        description:
-          "Focused landing pages designed to communicate your message clearly and drive conversions.",
-        icon: Code2,
-      },
-      {
-        title: "Website Redesign",
-        description:
-          "We redesign outdated websites with modern layouts, better usability, and responsive experiences.",
-        icon: Palette,
-      },
-      {
-        title: "Website Maintenance",
-        description:
-          "Reliable website updates, improvements, and maintenance to keep your website running smoothly.",
-        icon: Monitor,
-      },
-    ],
-  },
-
-  "brand-awareness": {
-    title: "Brand Awareness",
-    details: [
-      {
-        title: "Content Creation",
-        description:
-          "Creative content that communicates your brand message and keeps your audience engaged.",
-        icon: Video,
-      },
-      {
-        title: "Social Media Handling",
-        description:
-          "We create and manage engaging social media content that improves your brand visibility.",
-        icon: Share2,
-      },
-      {
-        title: "Video Content",
-        description:
-          "Creative video content that helps your brand communicate ideas effectively and attract attention.",
-        icon: Video,
-      },
-      {
-        title: "Profile Setup & Optimization",
-        description:
-          "Professional profile setup and optimization to create a strong and consistent digital presence.",
-        icon: Megaphone,
-      },
-    ],
-  },
+type Detail = {
+  title: string;
+  description: string;
+  icon: React.ElementType;
 };
 
-const tabs: {
-  id: ServiceId;
-  label: string;
-}[] = [
-  {
-    id: "graphic-design",
-    label: "Graphic Design",
-  },
-  {
-    id: "website-development",
-    label: "Website Design",
-  },
-  {
-    id: "brand-awareness",
-    label: "Brand Awareness",
-  },
+const services: Record<ServiceId, Detail[]> = {
+  "graphic-design": [
+    {
+      title: "Logo Design",
+      description: "Memorable logos that define your brand identity.",
+      icon: Pencil,
+    },
+    {
+      title: "Packaging Design",
+      description:
+        "We design impactful packaging that makes your product stand out and attract customers instantly.",
+      icon: Box,
+    },
+    {
+      title: "Brochure Design",
+      description:
+        "We design clean and professional brochures that present your brand and information clearly.",
+      icon: FileText,
+    },
+    {
+      title: "Poster Design",
+      description:
+        "We create impactful posters that attract attention and deliver your message effectively.",
+      icon: ImageIcon,
+    },
+  ],
+
+  "website-development": [
+    {
+      title: "E-Commerce Website",
+      description:
+        "Professional e-commerce websites designed to showcase your products and help your business grow online.",
+      icon: Monitor,
+    },
+    {
+      title: "Business Website",
+      description:
+        "Modern business websites that build credibility and create a strong online presence.",
+      icon: Smartphone,
+    },
+    {
+      title: "Landing Pages",
+      description:
+        "Focused landing pages designed to communicate your message clearly and drive conversions.",
+      icon: Code2,
+    },
+    {
+      title: "Website Redesign",
+      description:
+        "We redesign outdated websites with modern layouts, better usability, and responsive experiences.",
+      icon: Palette,
+    },
+    {
+      title: "Website Maintenance",
+      description:
+        "Reliable website updates, improvements, and maintenance to keep your website running smoothly.",
+      icon: Monitor,
+    },
+  ],
+
+  "brand-awareness": [
+    {
+      title: "Content Creation",
+      description:
+        "Creative content that communicates your brand message and keeps your audience engaged.",
+      icon: Video,
+    },
+    {
+      title: "Social Media Handling",
+      description:
+        "We create and manage engaging social media content that improves your brand visibility.",
+      icon: Share2,
+    },
+    {
+      title: "Video Content",
+      description:
+        "Creative video content that helps your brand communicate ideas effectively and attract attention.",
+      icon: Video,
+    },
+    {
+      title: "Profile Setup & Optimization",
+      description:
+        "Professional profile setup and optimization to create a strong and consistent digital presence.",
+      icon: Megaphone,
+    },
+  ],
+};
+
+const tabs: { id: ServiceId; label: string }[] = [
+  { id: "graphic-design", label: "Graphic Design" },
+  { id: "website-development", label: "Website Design" },
+  { id: "brand-awareness", label: "Brand Awareness" },
 ];
 
 export default function ServicePage() {
   const router = useRouter();
-
   const [activeTab, setActiveTab] =
     useState<ServiceId>("graphic-design");
 
-  /*
-    Read the hash from URL and activate the correct tab
-  */
- const readHashAndSetTab = () => {
-  const hash = window.location.hash.substring(1);
+  const readHashAndSetTab = () => {
+    const hash = window.location.hash.substring(1) as ServiceId;
 
-  if (
-    hash === "graphic-design" ||
-    hash === "website-development" ||
-    hash === "brand-awareness"
-  ) {
-    setActiveTab(hash);
+    if (
+      hash === "graphic-design" ||
+      hash === "website-development" ||
+      hash === "brand-awareness"
+    ) {
+      setActiveTab(hash);
 
-    setTimeout(() => {
-      document
-        .getElementById("service-content")
-        ?.scrollIntoView({
+      setTimeout(() => {
+        document.getElementById("service-content")?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-    }, 50);
-  }
-};
+      }, 50);
+    }
+  };
 
-  /*
-    Initial URL check + hash change listener
-  */
   useEffect(() => {
     readHashAndSetTab();
-
     window.addEventListener("hashchange", readHashAndSetTab);
-   
 
     return () => {
       window.removeEventListener("hashchange", readHashAndSetTab);
-      
     };
   }, []);
 
-  /*
-    Change tab + update URL
-  */
   const handleTabChange = (id: ServiceId) => {
-  window.location.hash = id;
-};
-
-  const currentService = services[activeTab];
+    window.location.hash = id;
+  };
 
   return (
     <main className="min-h-screen w-full bg-[#fafafa] text-[#10203b]">
@@ -219,7 +176,7 @@ export default function ServicePage() {
           </span>
         </div>
 
-        {/* SERVICE TABS */}
+        {/* TABS */}
         <div className="mb-12 flex flex-wrap items-center justify-center gap-8 border-b border-slate-200 pb-6 sm:gap-16">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -246,21 +203,16 @@ export default function ServicePage() {
         </div>
 
         {/* SERVICE CONTENT */}
-        <div
-          id="service-content"
-          className="scroll-mt-24"
-        >
-          {currentService.details.map((detail, index) => {
+        <div id="service-content" className="scroll-mt-24">
+          {services[activeTab].map((detail, index) => {
             const Icon = detail.icon;
 
             return (
               <div
                 key={detail.title}
-                className={`flex items-start gap-5 py-7 sm:gap-6 sm:py-8 ${
-                  index === 0
-                    ? "border-t border-indigo-100"
-                    : ""
-                } border-b border-indigo-100`}
+                className={`flex items-center gap-5 border-b border-indigo-100 py-7 sm:gap-6 sm:py-8 ${
+                  index === 0 ? "border-t border-indigo-100" : ""
+                }`}
               >
                 {/* ICON */}
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#111a30] text-white sm:h-14.5 sm:w-14.5">
@@ -270,8 +222,8 @@ export default function ServicePage() {
                   />
                 </div>
 
-                {/* CONTENT */}
-                <div className="pt-1">
+                {/* TEXT */}
+                <div className="min-w-0 flex-1">
                   <h2 className="text-[21px] font-bold leading-tight sm:text-[24px]">
                     {detail.title}
                   </h2>
@@ -284,7 +236,6 @@ export default function ServicePage() {
             );
           })}
         </div>
-
       </div>
     </main>
   );

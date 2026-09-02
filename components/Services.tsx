@@ -15,16 +15,16 @@ export default function ServicesSection() {
       href: "/service#graphic-design",
     },
     {
-      title: "Website Design",
-      image: "/service-website.png",
-      desc: "We build professional websites that strengthen your brand presence and help your business grow online.",
-      href: "/service#website-development",
-    },
-    {
       title: "Brand Awareness",
       image: "/service-brand.png",
       desc: "We support your brand with creative content, videos, and social media visuals to improve visibility.",
       href: "/service#brand-awareness",
+    },
+    {
+      title: "Website Design",
+      image: "/service-website.png",
+      desc: "We build professional websites that strengthen your brand presence and help your business grow online.",
+      href: "/service#website-development",
     },
   ];
 

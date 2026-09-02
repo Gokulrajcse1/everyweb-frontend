@@ -8,7 +8,7 @@ import {
   FaBars,
   FaFacebookF,
   FaInstagram,
-   FaPinterestP,
+  FaPinterestP,
   FaTimes,
   FaWhatsapp,
 } from "react-icons/fa";
@@ -16,6 +16,7 @@ import {
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Behind EM", href: "/about" },
@@ -35,7 +36,7 @@ export default function Navbar() {
       href: "https://www.instagram.com/everywebmatters",
       icon: <FaInstagram size={20} />,
     },
-     {
+    {
       label: "Pinterest",
       href: "https://pin.it/1wy50ytGE",
       icon: <FaPinterestP size={16} />,
@@ -53,28 +54,28 @@ export default function Navbar() {
         className="
           mx-auto
           w-[calc(100%-1.5rem)]
-          sm:w-[96vw]
           border-2
           border-black
           bg-[#efefef]
           shadow-[5px_5px_0_0_#000]
+          sm:w-[96vw]
         "
       >
-        {/* =========================
-            TOP ROW
-        ========================== */}
+        {/* TOP ROW */}
         <div className="flex min-h-16 items-center justify-between lg:h-18 lg:min-h-0 lg:border-b-2 lg:border-black">
-          
-          {/* Logo */}
+
+          {/* LOGO */}
           <Link
-            href="/"
+            href="/#hero"
             className="
               flex
+              min-w-0
               items-center
-              min-w-0 pl-4 sm:pl-6
+              pl-4
               transition-transform
               duration-300
               hover:scale-[1.02]
+              sm:pl-6
             "
           >
             <Image
@@ -87,7 +88,7 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Social Icons */}
+          {/* SOCIAL ICONS */}
           <div className="mr-4 hidden shrink-0 items-center gap-2 lg:flex">
             {socialLinks.map((social) => (
               <a
@@ -116,21 +117,45 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* MOBILE MENU BUTTON */}
           <button
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
-            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="mr-3 flex h-10 w-10 items-center justify-center border-2 border-black text-xl text-black transition-colors duration-200 hover:bg-black hover:text-white sm:mr-4 lg:hidden"
+            aria-label={
+              isMenuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
+            className="
+              mr-3
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+              border-2
+              border-black
+              text-xl
+              text-black
+              transition-colors
+              duration-200
+              hover:bg-black
+              hover:text-white
+              sm:mr-4
+              lg:hidden
+            "
           >
-            {isMenuOpen ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
+            {isMenuOpen ? (
+              <FaTimes aria-hidden="true" />
+            ) : (
+              <FaBars aria-hidden="true" />
+            )}
           </button>
         </div>
 
-        {/* =========================
-            NAVIGATION
-        ========================== */}
+        {/* DESKTOP NAVIGATION */}
         <nav className="hidden h-13 items-center justify-center px-6 lg:flex">
           <div
             className="
@@ -144,42 +169,103 @@ export default function Navbar() {
               text-black
             "
           >
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                aria-current={pathname === item.href ? "page" : undefined}
-                className={`relative py-1.5 transition-all duration-300 hover:text-[#5a4bff] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-[#5a4bff] after:transition-all after:duration-300 hover:after:w-full ${
-                  pathname === item.href
-                    ? "text-[#5a4bff] after:w-full"
-                    : "after:w-0"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
+            {navItems.map((item) => {
+              const isHome = item.label === "Home";
 
-        {isMenuOpen && (
-          <div id="mobile-navigation" className="border-t-2 border-black bg-[#efefef] px-4 py-4 lg:hidden">
-            <nav aria-label="Mobile navigation" className="flex flex-col border-2 border-black bg-white">
-              {navItems.map((item) => (
+              const isActive = isHome
+                ? pathname === "/"
+                : pathname === item.href;
+
+              return (
                 <Link
                   key={item.label}
                   href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  aria-current={pathname === item.href ? "page" : undefined}
-                  className={`border-b-2 border-black px-4 py-3 text-[16px] font-medium last:border-b-0 hover:bg-[#f3f3f3] ${
-                    pathname === item.href ? "bg-[#5a4bff] text-white" : "text-black"
-                  }`}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`
+                    relative
+                    py-1.5
+                    transition-all
+                    duration-300
+                    hover:text-[#5a4bff]
+                    after:absolute
+                    after:bottom-0
+                    after:left-0
+                    after:h-0.5
+                    after:bg-[#5a4bff]
+                    after:transition-all
+                    after:duration-300
+                    hover:after:w-full
+                    ${
+                      isActive
+                        ? "text-[#5a4bff] after:w-full"
+                        : "after:w-0"
+                    }
+                  `}
                 >
                   {item.label}
                 </Link>
-              ))}
+              );
+            })}
+          </div>
+        </nav>
+
+        {/* MOBILE NAVIGATION */}
+        {isMenuOpen && (
+          <div
+            id="mobile-navigation"
+            className="
+              border-t-2
+              border-black
+              bg-[#efefef]
+              px-4
+              py-4
+              lg:hidden
+            "
+          >
+            <nav
+              aria-label="Mobile navigation"
+              className="flex flex-col border-2 border-black bg-white"
+            >
+              {navItems.map((item) => {
+                const isHome = item.label === "Home";
+
+                const isActive = isHome
+                  ? pathname === "/"
+                  : pathname === item.href;
+
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`
+                      border-b-2
+                      border-black
+                      px-4
+                      py-3
+                      text-[16px]
+                      font-medium
+                      last:border-b-0
+                      hover:bg-[#f3f3f3]
+                      ${
+                        isActive
+                          ? "bg-[#5a4bff] text-white"
+                          : "text-black"
+                      }
+                    `}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
 
-            <div className="mt-4 flex flex-wrap gap-2" aria-label="Social links">
+            {/* MOBILE SOCIAL ICONS */}
+            <div
+              className="mt-4 flex flex-wrap gap-2"
+              aria-label="Social links"
+            >
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -187,7 +273,21 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center border-2 border-black bg-white text-black transition-colors duration-200 hover:bg-black hover:text-white"
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    items-center
+                    justify-center
+                    border-2
+                    border-black
+                    bg-white
+                    text-black
+                    transition-colors
+                    duration-200
+                    hover:bg-black
+                    hover:text-white
+                  "
                 >
                   {social.icon}
                 </a>

@@ -11,7 +11,17 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section
+      className="
+        bg-white
+        pt-12
+        pb-4
+        sm:pt-14
+        sm:pb-6
+        lg:pt-10
+        lg:pb-2
+      "
+    >
       <div className="mx-auto w-[calc(100%-2rem)] max-w-330 sm:w-[96vw]">
 
         {/* =========================
@@ -51,10 +61,10 @@ export default function AboutSection() {
                 flex-col
                 items-end
                 justify-center
+                border-black
                 bg-[#f3f3f3]
                 px-5
                 text-right
-                border-black
 
                 ${
                   index !== stats.length - 1
@@ -120,20 +130,39 @@ export default function AboutSection() {
         {/* =========================
             WHO WE ARE
         ========================== */}
-        <div className="mt-20 grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div
+          className="
+            mt-10
+            grid
+            grid-cols-1
+            items-center
+            gap-10
+            lg:mt-10
+            lg:grid-cols-2
+            lg:gap-10
+          "
+        >
 
-          {/* Left Image */}
+          {/* =========================
+              LEFT IMAGE
+          ========================== */}
           <div className="flex justify-center lg:justify-start">
             <Image
               src="/chracter2.svg"
               alt="Flying superhero illustration"
               width={560}
               height={560}
-              className="h-auto w-full max-w-140"
+              className="
+                h-auto
+                w-full
+                max-w-140
+              "
             />
           </div>
 
-          {/* Right Content */}
+          {/* =========================
+              RIGHT CONTENT
+          ========================== */}
           <div>
             <h3
               className="
@@ -150,7 +179,7 @@ export default function AboutSection() {
 
             <div
               className="
-                mt-6
+                mt-5
                 space-y-6
                 text-[17px]
                 leading-8
@@ -158,6 +187,8 @@ export default function AboutSection() {
                 sm:space-y-8
                 sm:text-[20px]
                 sm:leading-9
+                lg:text-[18px]
+                lg:leading-8
               "
             >
               <p>

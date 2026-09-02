@@ -1,117 +1,209 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
+import Image from "next/image";
 
-const worksList = [
+const designs = [
   {
-    title: 'Brand Brochure & Marketing Kit',
-    description: 'Explore the latest Everyweb Matters brochure and brand visual assets designed to showcase high-impact services clearly.',
-    tag: 'Graphic Design',
-    link: '#',
-    icon: (
-      <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    ),
+    id: 1,
+    image: "/01.png",
+    title: "K Seven Millet Malt",
   },
   {
-    title: 'E-Commerce Platform Design',
-    description: 'Modern, conversion-focused e-commerce UI built for seamless mobile user experience and quick product discovery.',
-    tag: 'Web Design',
-    link: '#',
-    icon: (
-      <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-      </svg>
-    ),
+    id: 2,
+    image: "/02.png",
+    title: "Packaging Design",
   },
   {
-    title: 'Social Media Campaign Assets',
-    description: 'High-engaging visual creative packages tailored for digital marketing campaigns and brand awareness growth.',
-    tag: 'Brand Awareness',
-    link: '#',
-    icon: (
-      <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-      </svg>
-    ),
+    id: 3,
+    image: "/03.png",
+    title: "Brand Identity",
   },
   {
-    title: 'Corporate Identity & Packaging',
-    description: 'Custom logo concepts and product packaging solutions crafted to elevate physical and digital product presence.',
-    tag: 'Graphic Design',
-    link: '#',
-    icon: (
-      <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-      </svg>
-    ),
+    id: 4,
+    image: "/04.png",
+    title: "Product Packaging",
+  },
+  {
+    id: 5,
+    image: "/05.png",
+    title: "Creative Campaign",
+  },
+  {
+    id: 6,
+    image: "/06.png",
+    title: "Packaging Artwork",
+  },
+  {
+    id: 7,
+    image: "/07.png",
+    title: "Brand Design",
+  },
+  {
+    id: 8,
+    image: "/08.png",
+    title: "Product Design",
+  },
+  {
+    id: 9,
+    image: "/09.png",
+    title: "Visual Design",
+  },
+  {
+    id: 10,
+    image: "/10.png",
+    title: "Creative Packaging",
+  },
+  {
+    id: 11,
+    image: "/11.png",
+    title: "Brand Communication",
+  },
+  {
+    id: 12,
+    image: "/12.png",
+    title: "Marketing Design",
+  },
+  {
+    id: 13,
+    image: "/13.png",
+    title: "Packaging & Branding",
   },
 ];
 
-export default function WorksPage() {
-  const router = useRouter();
-
+export default function WorkPage() {
   return (
-    <main className="min-h-screen w-full bg-[#fafafa] text-slate-900">
-      <div className="w-full px-6 py-10 md:px-16">
+    <main className="bg-white text-black">
 
-        {/* TOP BAR */}
-        <div className="mb-8 flex items-center justify-between">
-          <button
-            onClick={() => router.back()}
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50"
+      {/* =========================
+          HERO / TITLE
+      ========================== */}
+      <section className="px-6 pb-10 pt-10 sm:px-10 sm:pb-12 sm:pt-12 lg:px-16 lg:pb-14 lg:pt-14">
+        <div className="mx-auto max-w-[1400px]">
+          <h1
+            className="
+              text-[48px]
+              font-bold
+              italic
+              leading-[0.95]
+              tracking-[-0.04em]
+              sm:text-[64px]
+              md:text-[76px]
+              lg:text-[88px]
+            "
           >
-            ← Back
-          </button>
-
-          <span className="rounded-full bg-indigo-50 px-3.5 py-1 text-xs font-semibold tracking-wide text-[#5a4bff]">
-            Portfolio Showcase
-          </span>
-        </div>
-
-        {/* PAGE TITLE */}
-        <div className="mb-12 border-b border-slate-200 pb-6 text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-[#5a4bff] underline underline-offset-8 decoration-2 sm:text-4xl">
-            Our Work
+            EM in <span className="text-[#5a4bff]">Action</span>
           </h1>
-        </div>
 
-        {/* WORK ITEMS LIST LAYOUT */}
-        <div className="w-full space-y-8">
-          {worksList.map((work) => (
-            <div key={work.title} className="group w-full">
-              <div className="flex items-start gap-6 pb-6">
-                
-                {/* BLACK SQUARE ICON BOX */}
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-slate-900 shadow-sm">
-                  {work.icon}
+          <p
+            className="
+              mt-5
+              max-w-[720px]
+              text-[17px]
+              leading-7
+              text-[#333333]
+              sm:mt-6
+              sm:text-[19px]
+              sm:leading-8
+              lg:text-[20px]
+            "
+          >
+            A showcase of creative work designed by Everyweb Matters —
+            from impactful packaging and branding to visuals that help
+            businesses stand out.
+          </p>
+        </div>
+      </section>
+
+      {/* =========================
+          DESIGN SHOWCASE
+      ========================== */}
+      <section className="px-4 pb-12 sm:px-6 sm:pb-16 lg:px-10 lg:pb-20">
+        <div className="mx-auto max-w-[1400px]">
+
+          <div
+            className="
+              grid
+              grid-cols-1
+              gap-5
+              sm:grid-cols-2
+              lg:grid-cols-3
+            "
+          >
+            {designs.map((design) => (
+              <div
+                key={design.id}
+                className="
+                  group
+                  overflow-hidden
+                  border-2
+                  border-black
+                  bg-[#f5f5f5]
+                "
+              >
+                {/* Image */}
+                <div className="relative aspect-square w-full overflow-hidden bg-white">
+                  <Image
+                    src={design.image}
+                    alt={design.title}
+                    fill
+                    sizes="
+                      (max-width: 640px) 100vw,
+                      (max-width: 1024px) 50vw,
+                      33vw
+                    "
+                    className="
+                      object-contain
+                      transition-transform
+                      duration-500
+                      ease-out
+                      group-hover:scale-[1.03]
+                    "
+                  />
                 </div>
 
-                {/* CONTENT */}
-                <div className="w-full pt-1">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">
-                      {work.title}
-                    </h3>
-                    <span className="rounded-md bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-[#5a4bff]">
-                      {work.tag}
-                    </span>
-                  </div>
+                {/* Design Info */}
+                <div
+                  className="
+                    flex
+                    items-center
+                    justify-between
+                    border-t-2
+                    border-black
+                    px-4
+                    py-4
+                    sm:px-5
+                    sm:py-5
+                  "
+                >
+                  <h2
+                    className="
+                      text-[16px]
+                      font-bold
+                      leading-tight
+                      sm:text-[18px]
+                    "
+                  >
+                    {design.title}
+                  </h2>
 
-                  <p className="mt-2 text-base font-medium text-slate-600 sm:text-lg">
-                    {work.description}
-                  </p>
+                  <span
+                    className="
+                      text-[13px]
+                      font-bold
+                      text-[#5a4bff]
+                      sm:text-[14px]
+                    "
+                  >
+                    {design.id}
+                  </span>
                 </div>
               </div>
+            ))}
+          </div>
 
-              {/* PURPLE DIVIDER LINE */}
-              <div className="h-px w-full bg-[#5a4bff]/20" />
-            </div>
-          ))}
         </div>
+      </section>
 
-      </div>
     </main>
   );
 }

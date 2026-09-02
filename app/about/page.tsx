@@ -110,6 +110,51 @@ export default function AboutPage() {
           </div>
 
         </div>
+         {/* CONTENT & BRAND LOGO SECTION */}
+        <div className="mb-14 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12">
+          
+          {/* LEFT: CLEAN LOGO DISPLAY BOX */}
+          <div className="group relative flex min-h-80 items-center justify-center rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all hover:border-slate-300 lg:col-span-5">
+            <div className="transition-transform duration-300 ease-out group-hover:scale-105">
+              <Image
+                src="/EM logo.svg"
+                alt="Everyweb Logo"
+                width={300}
+                height={120}
+                className="h-auto w-56 md:w-64"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* RIGHT: ABOUT DETAILS */}
+          <div className="flex flex-col justify-center space-y-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:col-span-7 sm:p-10">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              A Note from the Founder
+            </h2>
+
+            <div className="space-y-4 text-base leading-relaxed text-slate-600">
+              <p className="border-l-2 border-[#5a4bff] pl-4 font-medium text-slate-800">
+                Everyweb Matters was built with a simple belief — great design has the power to shape how people see, remember, and connect with a brand.
+              </p>
+              <p>
+                Our journey began with a passion for creating meaningful visual experiences that go beyond aesthetics. 
+                From impactful packaging to thoughtful digital design, we focus on helping businesses present themselves with confidence and clarity.
+              </p>
+              <p>
+                We believe every brand has a story worth telling. Our role is to turn that story into design that connects, communicates, and creates lasting impact.
+              </p>
+            </div>
+
+            <div className="pt-2">
+              <div className="inline-block rounded-xl bg-indigo-50/70 px-5 py-3 text-sm font-semibold text-[#5a4bff]">
+                &ldquo;Good design gets attention. Great design builds connection.&rdquo;
+              </div>
+            </div>
+          </div>
+
+        </div>
+
 
         {/* CTA FOOTER BANNER */}
         <div className="rounded-2xl bg-slate-900 p-8 text-white shadow-md sm:p-12">
@@ -131,7 +176,7 @@ export default function AboutPage() {
             </Link>
           </div>
         </div>
-
+    
       </div>
     </main>
   );

@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
+  FaPinterestP,
   FaWhatsapp,
 } from "react-icons/fa";
 
@@ -22,28 +22,27 @@ export default function Footer() {
     {
       label: "Facebook",
       href: "https://www.facebook.com/everywebmatters",
-      icon: <FaFacebookF size={16} />,
+      icon: <FaFacebookF size={18} />,
     },
     {
       label: "Instagram",
       href: "https://www.instagram.com/everywebmatters",
-      icon: <FaInstagram size={16} />,
+      icon: <FaInstagram size={18} />,
     },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/company/everywebmatters/",
-      icon: <FaLinkedinIn size={16} />,
-    },
+   {
+  label: "Pinterest",
+  href: "https://pin.it/1wy50ytGE",
+  icon: <FaPinterestP size={16} />,
+},
     {
       label: "WhatsApp",
       href: "https://wa.me/9698284661",
-      icon: <FaWhatsapp size={18} />,
+      icon: <FaWhatsapp size={19} />,
     },
   ];
 
   return (
     <footer className="bg-white py-6 sm:py-8">
-      {/* FOOTER CONTAINER */}
       <div className="mx-auto w-[calc(100%-1rem)] max-w-none border-2 border-black bg-white sm:w-[98vw] lg:w-[97vw]">
 
         {/* MAIN FOOTER */}
@@ -52,31 +51,25 @@ export default function Footer() {
           {/* LEFT BRAND SECTION */}
           <div className="flex flex-col border-b-2 border-black lg:border-b-0 lg:border-r-2">
 
-            {/* Brand + Description */}
+            {/* BRAND */}
             <div className="flex-1 p-5 sm:p-6">
 
-              {/* Logo */}
+              {/* LOGO */}
               <Link
                 href="/"
-                className="
-                  inline-flex
-                  items-center
-                  transition-transform
-                  duration-300
-                  hover:scale-[1.02]
-                "
+                className="inline-flex items-center transition-transform duration-300 hover:scale-[1.02]"
               >
                 <Image
                   src="/EM logo.svg"
                   alt="EveryWeb Matters"
-                  width={180}
-                  height={50}
+                  width={220}
+                  height={60}
                   priority
-                  className="h-7 w-auto max-w-full object-contain sm:h-8"
+                  className="h-10 w-auto max-w-full object-contain sm:h-11"
                 />
               </Link>
 
-              {/* Description */}
+              {/* DESCRIPTION */}
               <p className="mt-4 max-w-72 text-[14px] leading-relaxed text-[#333333]">
                 We help businesses build stronger brands through strategic
                 branding, impactful graphic design, and modern website
@@ -85,7 +78,7 @@ export default function Footer() {
             </div>
 
             {/* SOCIAL ICONS */}
-            <div className="flex flex-wrap gap-2.5 border-t-2 border-black p-4 sm:p-5">
+            <div className="flex justify-center gap-2.5 border-t-2 border-black p-4 sm:p-5">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -128,12 +121,7 @@ export default function Footer() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="
-                      block
-                      transition-colors
-                      duration-300
-                      hover:text-[#5a4bff]
-                    "
+                    className="block transition-colors duration-300 hover:text-[#5a4bff]"
                   >
                     {item.label}
                   </Link>
@@ -162,7 +150,6 @@ export default function Footer() {
 
               <div className="space-y-3 text-[#333333]">
 
-                {/* Location */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Location
@@ -175,7 +162,6 @@ export default function Footer() {
                   </p>
                 </div>
 
-                {/* Email */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Email
@@ -183,20 +169,12 @@ export default function Footer() {
 
                   <a
                     href="mailto:contact@everywebmatters.com"
-                    className="
-                      break-all
-                      text-[13px]
-                      text-[#333333]
-                      transition-colors
-                      duration-300
-                      hover:text-[#5a4bff]
-                    "
+                    className="break-all text-[13px] text-[#333333] transition-colors duration-300 hover:text-[#5a4bff]"
                   >
                     contact@everywebmatters.com
                   </a>
                 </div>
 
-                {/* Phone */}
                 <div>
                   <h4 className="mb-1 text-[15px] font-semibold text-black">
                     Phone
@@ -204,13 +182,7 @@ export default function Footer() {
 
                   <a
                     href="tel:+919698284661"
-                    className="
-                      text-[13px]
-                      text-[#333333]
-                      transition-colors
-                      duration-300
-                      hover:text-[#5a4bff]
-                    "
+                    className="text-[13px] text-[#333333] transition-colors duration-300 hover:text-[#5a4bff]"
                   >
                     +91 96982 84661
                   </a>

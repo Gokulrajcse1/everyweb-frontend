@@ -8,7 +8,7 @@ import {
   FaBars,
   FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
+   FaPinterestP,
   FaTimes,
   FaWhatsapp,
 } from "react-icons/fa";
@@ -35,10 +35,10 @@ export default function Navbar() {
       href: "https://www.instagram.com/everywebmatters",
       icon: <FaInstagram size={20} />,
     },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/company/everywebmatters/",
-      icon: <FaLinkedinIn size={20} />,
+     {
+      label: "Pinterest",
+      href: "https://pin.it/1wy50ytGE",
+      icon: <FaPinterestP size={16} />,
     },
     {
       label: "WhatsApp",

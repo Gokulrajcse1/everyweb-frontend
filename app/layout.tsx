@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     "Everyweb Matters helps brands stand out with strategic graphic design, powerful websites, and creative brand content.",
 
   icons: {
-    icon: "/EM logo.svg",
+    icon: "/favicon.svg",
   },
 };
 

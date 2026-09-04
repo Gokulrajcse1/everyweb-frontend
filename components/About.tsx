@@ -180,11 +180,11 @@ export default function AboutSection() {
             <div
               className="
                 mt-5
-                space-y-6
+                space-y-2
                 text-[17px]
                 leading-8
                 text-[#333333]
-                sm:space-y-8
+                sm:space-y-6
                 sm:text-[20px]
                 sm:leading-9
                 lg:text-[18px]

@@ -191,7 +191,7 @@ export default function ServicePage() {
         </div>
 
         {/* TABS */}
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-8 border-b border-slate-200 pb-6 sm:gap-14">
+        <div className="mb-2 flex flex-wrap items-center justify-center gap-8 pb-6 sm:gap-14">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
 

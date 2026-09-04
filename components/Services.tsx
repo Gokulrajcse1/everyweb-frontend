@@ -40,7 +40,7 @@ export default function ServicesSection() {
         </div>
 
         {/* SERVICE CARDS */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-5">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-8">
           {services.map((service) => {
             const isHovered = hoveredCard === service.title;
 

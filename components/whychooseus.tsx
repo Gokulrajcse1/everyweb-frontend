@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
         bg-[#f3f3f3]
         py-6
         sm:py-8
-        lg:pt-4
+        lg:pt-10
         lg:pb-0
       "
     >
@@ -48,13 +48,7 @@ export default function WhyChooseUs() {
         {/* =========================
             HEADING
         ========================== */}
-        <div
-          className="
-            mb-6
-            sm:mb-7
-            lg:mb-12
-          "
-        >
+        <div className="mb-6 sm:mb-7 lg:mb-12 lg:pt-4">
           <h2
             className="
               text-[40px]

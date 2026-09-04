@@ -87,3 +87,22 @@ a {
 html {
   scroll-behavior: smooth;
 }
+
+/* ==========================================================================
+   CUSTOM ANIMATIONS (founder IMAGE EFFECT)
+   ========================================================================== */
+
+   @keyframes founderFloat {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}
+
+.founder-photo {
+  animation: founderFloat 6s ease-in-out infinite;
+}

@@ -7,10 +7,11 @@ import {
   Box,
   FileText,
   Image as ImageIcon,
-  Monitor,
-  Smartphone,
-  Code2,
+  ShoppingCart,
+  Building2,
+  PanelsTopLeft,
   Palette,
+  Wrench,
   Megaphone,
   Video,
   Share2,
@@ -60,19 +61,19 @@ const services: Record<ServiceId, Detail[]> = {
       title: "E-Commerce Website",
       description:
         "Professional e-commerce websites designed to showcase your products and help your business grow online.",
-      icon: Monitor,
+      icon: ShoppingCart,
     },
     {
       title: "Business Website",
       description:
         "Modern business websites that build credibility and create a strong online presence.",
-      icon: Smartphone,
+      icon: Building2,
     },
     {
       title: "Landing Pages",
       description:
         "Focused landing pages designed to communicate your message clearly and drive conversions.",
-      icon: Code2,
+      icon: PanelsTopLeft,
     },
     {
       title: "Website Redesign",
@@ -84,7 +85,7 @@ const services: Record<ServiceId, Detail[]> = {
       title: "Website Maintenance",
       description:
         "Reliable website updates, improvements, and maintenance to keep your website running smoothly.",
-      icon: Monitor,
+      icon: Wrench,
     },
   ],
 
@@ -117,13 +118,23 @@ const services: Record<ServiceId, Detail[]> = {
 };
 
 const tabs: { id: ServiceId; label: string }[] = [
-  { id: "graphic-design", label: "Graphic Design" },
-  { id: "website-development", label: "Website Design" },
-  { id: "brand-awareness", label: "Brand Awareness" },
+  {
+    id: "graphic-design",
+    label: "Graphic Design",
+  },
+  {
+    id: "website-development",
+    label: "Website Design",
+  },
+  {
+    id: "brand-awareness",
+    label: "Brand Awareness",
+  },
 ];
 
 export default function ServicePage() {
   const router = useRouter();
+
   const [activeTab, setActiveTab] =
     useState<ServiceId>("graphic-design");
 
@@ -148,10 +159,17 @@ export default function ServicePage() {
 
   useEffect(() => {
     readHashAndSetTab();
-    window.addEventListener("hashchange", readHashAndSetTab);
+
+    window.addEventListener(
+      "hashchange",
+      readHashAndSetTab
+    );
 
     return () => {
-      window.removeEventListener("hashchange", readHashAndSetTab);
+      window.removeEventListener(
+        "hashchange",
+        readHashAndSetTab
+      );
     };
   }, []);
 
@@ -217,7 +235,10 @@ export default function ServicePage() {
         </div>
 
         {/* SERVICE CONTENT */}
-        <div id="service-content" className="scroll-mt-24">
+        <div
+          id="service-content"
+          className="scroll-mt-24"
+        >
           {services[activeTab].map((detail, index) => {
             const Icon = detail.icon;
 
@@ -225,11 +246,27 @@ export default function ServicePage() {
               <div
                 key={detail.title}
                 className={`flex items-center gap-4 border-b border-indigo-100 py-6 sm:gap-5 sm:py-7 ${
-                  index === 0 ? "border-t border-indigo-100" : ""
+                  index === 0
+                    ? "border-t border-indigo-100"
+                    : ""
                 }`}
               >
                 {/* ICON */}
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#111a30] text-white sm:h-14.5 sm:w-14.5">
+                <div
+                  className="
+                    flex
+                    h-14
+                    w-14
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-xl
+                    bg-[#111a30]
+                    text-white
+                    sm:h-14.5
+                    sm:w-14.5
+                  "
+                >
                   <Icon
                     className="h-6 w-6 sm:h-7 sm:w-7"
                     strokeWidth={1.8}
@@ -250,6 +287,7 @@ export default function ServicePage() {
             );
           })}
         </div>
+
       </div>
     </main>
   );

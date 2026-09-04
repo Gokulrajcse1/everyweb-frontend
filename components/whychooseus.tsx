@@ -178,7 +178,7 @@ export default function WhyChooseUs() {
           {/* =========================
               RIGHT - ILLUSTRATION
           ========================== */}
- <div className="hidden items-start justify-center lg:flex lg:-mt-6 lg:-translate-x-8">
+ <div className="hidden items-start justify-center lg:flex lg:-mt-6 lg:translate-x-6">
              <Image
   src="/whychoose-usCharacter.svg"
   alt="Why choose us illustration"

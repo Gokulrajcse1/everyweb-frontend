@@ -163,17 +163,16 @@ export default function AboutPage() {
 
     </div>
 
-    {/* FOUNDER VISUAL - RIGHT */}
-    <div className="flex min-h-72 items-center justify-center bg-[#5a4bff] p-8 sm:min-h-80 lg:min-h-full">
-      <Image
-        src="/EM logo.svg"
-        alt="Everyweb Matters"
-        width={420}
-        height={160}
-        className="h-auto w-60 brightness-0 invert sm:w-68 lg:w-72"
-      />
-    </div>
-
+ <div className="overflow-hidden bg-black">
+  <Image
+  src="/Founder&CreativeDirector.png"
+  alt="Founder and Creative Director of Everyweb Matters"
+  width={600}
+  height={600}
+  priority
+  className="founder-photo h-full w-full object-cover"
+/>
+</div>
   </div>
 </section>
 

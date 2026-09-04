@@ -169,7 +169,7 @@ export default function AboutPage() {
             </div>
 
             {/* FOUNDER PHOTO */}
-            <div className="relative min-h-[320px] w-full overflow-hidden bg-black lg:min-h-full">
+            <div className="relative min-h-80 w-full overflow-hidden bg-black lg:min-h-full">
               <Image
                 src="/Founder&CreativeDirector.png"
                 alt="Founder and Creative Director of Everyweb Matters"
@@ -188,7 +188,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
 
             {/* LEFT VISUAL */}
-            <div className="flex items-center justify-center bg-[#f3f3f3] p-8 min-h-[320px] lg:min-h-full">
+            <div className="flex items-center justify-center bg-[#f3f3f3] p-8 min-h-80 lg:min-h-full">
               <Image
                 src="/EM logo.svg"
                 alt="Everyweb Matters Logo"

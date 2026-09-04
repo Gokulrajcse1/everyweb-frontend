@@ -2,240 +2,395 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { X, ArrowUpRight } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Maximize2,
+  X,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const designs = [
-  ["14.png", "Beetroot Packaging"],
-  // ["01.png", "K Seven Millet Malt"],
-  // ["02.png", "Multigrain Malt"],
-  // ["03.png", "Brand Identity"],
-  // ["04.png", "Product Packaging"],
-  // ["05.png", "Creative Campaign"],
-  // ["06.png", "Packaging Artwork"],
-  // ["07.png", "Brand Design"],
-  // ["08.png", "Product Design"],
-  // ["09.png", "Visual Design"],
-  // ["10.png", "Creative Packaging"],
-  // ["11.png", "Brand Communication"],
-  // ["12.png", "Marketing Design"],
-  // ["13.png", "Packaging & Branding"],
-  
+type Category = {
+  title: string;
+  folder: string;
+  description: string;
+  tags: string[];
+  images: string[];
+};
+
+const categories: Category[] = [
+  {
+    title: "Nutri Mix",
+    folder: "Nutri Mix",
+    description:
+      "A bold packaging collection designed to give everyday nutrition products a memorable shelf presence.",
+    tags: ["Packaging", "Brand Identity", "Visual Design"],
+    images: ["1.png", "2.png", "3.png"],
+  },
+  {
+    title: "Porridge Mix",
+    folder: "Porridge Mix",
+    description:
+      "Clean and modern packaging directions created for nutritious porridge products.",
+    tags: ["Packaging", "Product Design", "Branding"],
+    images: ["1.png", "2.png", "3.png"],
+  },
+  {
+    title: "Podi Mix",
+    folder: "Podi Mix",
+    description:
+      "A distinctive product identity balancing traditional food cues with a contemporary visual language.",
+    tags: ["Packaging", "Identity", "Art Direction"],
+    images: ["1.png", "2.png", "3.png"],
+  },
+  {
+    title: "Soup Mix",
+    folder: "Soup Mix",
+    description:
+      "Warm and approachable packaging concepts designed to communicate flavour and trust.",
+    tags: ["Packaging", "Product Design", "Creative"],
+    images: ["1.png", "2.png", "3.png"],
+  },
+  {
+    title: "Fragrance",
+    folder: "Fragrance",
+    description:
+      "Refined visual directions created to give fragrance products a distinct identity.",
+    tags: ["Packaging", "Luxury", "Visual Identity"],
+    images: ["1.png", "2.png", "3.png"],
+  },
+  {
+    title: "Pickle",
+    folder: "Pickle",
+    description:
+      "Traditional product storytelling brought into a bold contemporary packaging system.",
+    tags: ["Packaging", "Branding", "Retail"],
+    images: ["1.png", "2.png", "3.png"],
+  },
+  {
+    title: "Health Mix",
+    folder: "Health Mix",
+    description:
+      "Clear and approachable packaging designed around health and everyday usability.",
+    tags: ["Packaging", "Communication", "Branding"],
+    images: ["1.png", "2.png", "3.png"],
+  },
+  {
+    title: "Millets Mix",
+    folder: "Millets Mix",
+    description:
+      "Natural product cues combined with a modern visual system for millet-based products.",
+    tags: ["Packaging", "Natural", "Brand Identity"],
+    images: ["1.png", "2.png", "3.png"],
+  },
+  {
+    title: "Malt Designs",
+    folder: "Malt Designs",
+    description:
+      "Strong packaging directions built around malt-based products and nutrition.",
+    tags: ["Packaging", "Product Identity", "Creative"],
+    images: ["1.png", "2.png", "3.png"],
+  },
 ];
 
 export default function WorkPage() {
   const router = useRouter();
-  const [selected, setSelected] = useState<number | null>(null);
+
+  const [current, setCurrent] = useState<Record<number, number>>({});
+  const [preview, setPreview] = useState<[number, number] | null>(null);
+
+  const getImage = (index: number) => current[index] ?? 0;
+
+  const changeImage = (index: number, direction: number) => {
+    const total = categories[index].images.length;
+
+    setCurrent((prev) => ({
+      ...prev,
+      [index]: (getImage(index) + direction + total) % total,
+    }));
+  };
 
   return (
-    <main className="min-h-screen w-full bg-[#fafafa] text-slate-900">
+    <main className="page-shell">
+      {/* HERO */}
+      <section className="page-intro">
+        <div className="page-container">
+          <div className="top-bar">
+            <button
+              type="button"
+              onClick={() => router.back()}
+              className="outline-button"
+            >
+              ← Back
+            </button>
 
-      <div className="w-full px-5 py-6 sm:px-8 sm:py-8 md:px-12 lg:px-16">
-
-        {/* TOP BAR */}
-        <div className="mb-8 flex items-center justify-between sm:mb-10">
-          <button
-            type="button"
-            onClick={() => router.back()}
-            className="
-              inline-flex items-center gap-2
-              border border-slate-200
-              bg-white px-4 py-2
-              text-sm font-medium text-slate-700
-              shadow-sm
-              transition-all duration-300
-              hover:border-black hover:bg-black hover:text-white
-            "
-          >
-            ← Back
-          </button>
-
-          <span className="bg-indigo-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-[#5a4bff]">
-            Selected Work
-          </span>
-        </div>
-
-        {/* HERO TITLE SECTION */}
-        <div className="mb-10 border-b border-slate-200 pb-8">
-
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5a4bff]">
-            13 Creative Projects
-          </p>
-
-          <h1 className="mt-2 text-4xl font-bold italic tracking-tight text-slate-900 sm:text-6xl md:text-7xl lg:text-[88px] lg:leading-[0.95]">
-            EM in <span className="text-[#5a4bff]">Action</span>
-          </h1>
-
-          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg">
-            A showcase of creative work designed by Everyweb Matters — from impactful
-            packaging and branding to visuals that help businesses stand out.
-          </p>
-        </div>
-      </div>
-
-      {/* WORK SHOWCASE */}
-      <section className="px-4 pb-20 sm:px-6 lg:px-10">
-        <div className="mx-auto max-w-350">
-
-          {/* SECTION TITLE */}
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-bold sm:text-2xl">
-              Our Work
-            </h2>
-
-            <span className="text-sm text-[#666]">
-              01 — 13
-            </span>
+            <span className="page-pill">Selected Work</span>
           </div>
 
-          {/* 4 CARDS PER ROW */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="hero-line">
+            <div>
+              <p className="eyebrow">Creative Portfolio</p>
 
-            {designs.map(([image, title], i) => (
-              <button
-                key={image}
-                type="button"
-                onClick={() => setSelected(i)}
-                className="group block w-full text-left"
-              >
-                <div className="overflow-hidden border border-black bg-white">
+              <h1 className="hero-title">
+                EM in <span>Action</span>
+              </h1>
 
-                  {/* IMAGE */}
-                  <div className="relative aspect-square overflow-hidden bg-[#f5f5f5]">
+              <p className="hero-description">
+                A showcase of creative work designed by Everyweb Matters —
+                <br className="hidden sm:block" />
+                from impactful packaging and branding to visuals that help
+                businesses stand out.
+              </p>
+            </div>
 
-                    <Image
-                      src={`/${image}`}
-                      alt={title}
-                      fill
-                      sizes="
-                        (max-width: 640px) 100vw,
-                        (max-width: 1024px) 50vw,
-                        25vw
-                      "
-                      className="
-                        object-contain
-                        transition-transform
-                        duration-500
-                        group-hover:scale-110
-                      "
-                    />
+            <div className="collection-total">
+              <strong>
+                {String(categories.length).padStart(2, "0")}
+              </strong>
 
-                    {/* PROJECT NUMBER */}
-                    <span
-                      className="
-                        absolute
-                        left-4
-                        top-4
-                        flex
-                        h-11
-                        w-11
-                        items-center
-                        justify-center
-                        border-2
-                        border-black
-                        bg-white
-                        text-sm
-                        font-bold
-                      "
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-
-                  </div>
-
-                  {/* PROJECT INFO */}
-                  <div className="flex items-center justify-between border-t-2 border-black px-4 py-4 sm:px-5">
-                    <div>
-                      <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.15em] text-[#5a4bff]">
-                        Project
-                      </p>
-
-                      <h3 className="text-[16px] font-bold sm:text-[18px]">
-                        {title}
-                      </h3>
-                    </div>
-
-                    <ArrowUpRight className="h-5 w-5" />
-                  </div>
-                </div>
-              </button>
-            ))}
-
+              <span>
+                Creative
+                <br />
+                Collections
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FULLSCREEN PREVIEW */}
-      {selected !== null && (
-        <div
-          onClick={() => setSelected(null)}
-          className="
-            fixed
-            inset-0
-            z-50
-            flex
-            items-center
-            justify-center
-            bg-black/90
-            p-5
-            backdrop-blur-sm
-          "
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative h-[85vh] w-full max-w-5xl"
-          >
-
-            {/* CLOSE BUTTON */}
-            <button
-              type="button"
-              onClick={() => setSelected(null)}
-              className="
-                absolute
-                right-0
-                top-0
-                z-10
-                flex
-                h-11
-                w-11
-                items-center
-                justify-center
-                border-2
-                border-white
-                bg-black
-                text-white
-                hover:bg-white
-                hover:text-black
-              "
-              aria-label="Close preview"
-            >
-              <X className="h-5 w-5" />
-            </button>
-
-            {/* PREVIEW IMAGE */}
-            <Image
-              src={`/${designs[selected][0]}`}
-              alt={designs[selected][1]}
-              fill
-              sizes="100vw"
-              className="object-contain"
-            />
-
-            {/* PROJECT TITLE */}
-            <div className="absolute bottom-0 left-0 bg-black/75 px-5 py-3 text-white">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#8b80ff]">
-                Project {String(selected + 1).padStart(2, "0")}
-              </p>
-
-              <h2 className="text-xl font-bold">
-                {designs[selected][1]}
-              </h2>
+      {/* PORTFOLIO */}
+      <section className="portfolio-section">
+        <div className="page-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Our Portfolio</p>
+              <h2>Creative Collections</h2>
             </div>
 
+            <span>
+              {String(categories.length).padStart(2, "0")} Collections
+            </span>
+          </div>
+
+          <div className="collection-list">
+            {categories.map((category, index) => {
+              const imageIndex = getImage(index);
+              const reversed = index % 2 === 1;
+
+              return (
+                <article key={category.title} className="collection">
+                  <div className="collection-meta">
+                    <span>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div />
+                    <span>COLLECTION</span>
+                  </div>
+
+                  <div
+                    className={`collection-card ${
+                      reversed ? "collection-card-reverse" : ""
+                    }`}
+                  >
+                    {/* IMAGE */}
+                    <div className="collection-visual">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setPreview([index, imageIndex])
+                        }
+                        className="collection-image-button"
+                      >
+                        <div className="collection-image">
+                          <Image
+                            src={`/${category.folder}/${category.images[imageIndex]}`}
+                            alt={`${category.title} design ${imageIndex + 1}`}
+                            fill
+                            sizes="(max-width:1024px) 100vw, 60vw"
+                            className="collection-image-img"
+                          />
+
+                          <span className="image-number">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+
+                          <span className="image-counter">
+                            {imageIndex + 1} /{" "}
+                            {category.images.length}
+                          </span>
+
+                          <span className="open-image">
+                            <Maximize2 className="h-4 w-4" />
+                            Open
+                          </span>
+                        </div>
+                      </button>
+
+                      <div className="image-controls">
+                        <button
+                          type="button"
+                          onClick={() => changeImage(index, -1)}
+                          className="square-button"
+                          aria-label={`Previous ${category.title}`}
+                        >
+                          <ArrowLeft className="h-4 w-4" />
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => changeImage(index, 1)}
+                          className="square-button"
+                          aria-label={`Next ${category.title}`}
+                        >
+                          <ArrowRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* CONTENT */}
+                    <div className="collection-content">
+                      <div>
+                        <p className="eyebrow">
+                          {index === 0
+                            ? "Featured Collection"
+                            : "Creative Collection"}
+                        </p>
+
+                        <h3>{category.title}</h3>
+
+                        <p className="collection-description">
+                          {category.description}
+                        </p>
+
+                        <div className="tag-list">
+                          {category.tags.map((tag) => (
+                            <span key={tag}>{tag}</span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="collection-bottom">
+                        <div className="progress-row">
+                          <span>DESIGNS</span>
+                          <strong>
+                            {String(imageIndex + 1).padStart(2, "0")} /{" "}
+                            {String(category.images.length).padStart(2, "0")}
+                          </strong>
+                        </div>
+
+                        <div className="progress-bar">
+                          {category.images.map((_, image) => (
+                            <button
+                              key={image}
+                              type="button"
+                              onClick={() =>
+                                setCurrent((prev) => ({
+                                  ...prev,
+                                  [index]: image,
+                                }))
+                              }
+                              className={
+                                imageIndex === image
+                                  ? "progress-active"
+                                  : ""
+                              }
+                              aria-label={`Show design ${image + 1}`}
+                            />
+                          ))}
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setPreview([index, imageIndex])
+                          }
+                          className="view-button"
+                        >
+                          View Collection
+                          <ArrowRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* FULLSCREEN */}
+      {preview && (
+        <div
+          className="preview-overlay"
+          onClick={() => setPreview(null)}
+        >
+          <div
+            className="preview-stage"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setPreview(null)}
+              className="preview-close"
+              aria-label="Close preview"
+            >
+              <X />
+            </button>
+
+            <Image
+              src={`/${categories[preview[0]].folder}/${categories[preview[0]].images[preview[1]]}`}
+              alt={categories[preview[0]].title}
+              fill
+              sizes="100vw"
+              className="preview-image"
+            />
+
+            <button
+              type="button"
+              className="preview-arrow preview-prev"
+              onClick={() => {
+                const total =
+                  categories[preview[0]].images.length;
+
+                setPreview([
+                  preview[0],
+                  (preview[1] - 1 + total) % total,
+                ]);
+              }}
+              aria-label="Previous preview"
+            >
+              <ArrowLeft />
+            </button>
+
+            <button
+              type="button"
+              className="preview-arrow preview-next"
+              onClick={() => {
+                const total =
+                  categories[preview[0]].images.length;
+
+                setPreview([
+                  preview[0],
+                  (preview[1] + 1) % total,
+                ]);
+              }}
+              aria-label="Next preview"
+            >
+              <ArrowRight />
+            </button>
+
+            <div className="preview-info">
+              <p>{categories[preview[0]].title}</p>
+
+              <strong>
+                Design {preview[1] + 1} /{" "}
+                {categories[preview[0]].images.length}
+              </strong>
+            </div>
           </div>
         </div>
       )}
-
     </main>
   );
 }

@@ -14,6 +14,7 @@ import {
   Megaphone,
   Video,
   Share2,
+  PenTool,
 } from "lucide-react";
 
 type ServiceId =
@@ -92,7 +93,7 @@ const services: Record<ServiceId, Detail[]> = {
       title: "Content Creation",
       description:
         "Creative content that communicates your brand message and keeps your audience engaged.",
-      icon: Video,
+      icon: PenTool,
     },
     {
       title: "Social Media Handling",
@@ -126,14 +127,13 @@ export default function ServicePage() {
   const [activeTab, setActiveTab] =
     useState<ServiceId>("graphic-design");
 
-  const readHashAndSetTab = () => { 
+  const readHashAndSetTab = () => {
     const hash = window.location.hash.substring(1) as ServiceId;
 
     if (
       hash === "graphic-design" ||
-      hash === "website-development"||
+      hash === "website-development" ||
       hash === "brand-awareness"
-      
     ) {
       setActiveTab(hash);
 
@@ -166,8 +166,21 @@ export default function ServicePage() {
         {/* TOP BAR */}
         <div className="mb-8 flex items-center justify-between">
           <button
+            type="button"
             onClick={() => router.back()}
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition-all hover:border-slate-300 hover:bg-slate-50"
+            className="
+              inline-flex items-center gap-2
+              rounded-lg
+              border border-slate-200
+              bg-white
+              px-4 py-2
+              text-sm font-medium
+              text-slate-700
+              shadow-sm
+              transition-all
+              hover:border-slate-300
+              hover:bg-slate-50
+            "
           >
             ← Back
           </button>
@@ -178,7 +191,7 @@ export default function ServicePage() {
         </div>
 
         {/* TABS */}
-        <div className="mb-12 flex flex-wrap items-center justify-center gap-8 border-b border-slate-200 pb-6 sm:gap-16">
+        <div className="mb-10 flex flex-wrap items-center justify-center gap-8 border-b border-slate-200 pb-6 sm:gap-14">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
 
@@ -211,7 +224,7 @@ export default function ServicePage() {
             return (
               <div
                 key={detail.title}
-                className={`flex items-center gap-5 border-b border-indigo-100 py-7 sm:gap-6 sm:py-8 ${
+                className={`flex items-center gap-4 border-b border-indigo-100 py-6 sm:gap-5 sm:py-7 ${
                   index === 0 ? "border-t border-indigo-100" : ""
                 }`}
               >

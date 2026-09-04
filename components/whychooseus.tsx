@@ -178,7 +178,7 @@ export default function WhyChooseUs() {
           {/* =========================
               RIGHT - ILLUSTRATION
           ========================== */}
-  <div className="hidden items-start justify-end lg:flex -mt-10 lg:-mt-14">
+ <div className="hidden items-start justify-center lg:flex lg:-mt-6 lg:-translate-x-8">
              <Image
   src="/whychoose-usCharacter.svg"
   alt="Why choose us illustration"
@@ -189,9 +189,9 @@ export default function WhyChooseUs() {
   className="
     h-auto
     w-full
-    max-w-180
+    max-w-130
     object-contain
-    lg:w-137.5
+    lg:w-110
     lg:max-w-none
   "
 />

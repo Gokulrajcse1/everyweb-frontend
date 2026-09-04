@@ -6,19 +6,21 @@ import { X, ArrowUpRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const designs = [
-  ["01.png", "K Seven Millet Malt"],
-  ["02.png", "Packaging Design"],
-  ["03.png", "Brand Identity"],
-  ["04.png", "Product Packaging"],
-  ["05.png", "Creative Campaign"],
-  ["06.png", "Packaging Artwork"],
-  ["07.png", "Brand Design"],
-  ["08.png", "Product Design"],
-  ["09.png", "Visual Design"],
-  ["10.png", "Creative Packaging"],
-  ["11.png", "Brand Communication"],
-  ["12.png", "Marketing Design"],
-  ["13.png", "Packaging & Branding"],
+  ["14.png", "Beetroot Packaging"],
+  // ["01.png", "K Seven Millet Malt"],
+  // ["02.png", "Multigrain Malt"],
+  // ["03.png", "Brand Identity"],
+  // ["04.png", "Product Packaging"],
+  // ["05.png", "Creative Campaign"],
+  // ["06.png", "Packaging Artwork"],
+  // ["07.png", "Brand Design"],
+  // ["08.png", "Product Design"],
+  // ["09.png", "Visual Design"],
+  // ["10.png", "Creative Packaging"],
+  // ["11.png", "Brand Communication"],
+  // ["12.png", "Marketing Design"],
+  // ["13.png", "Packaging & Branding"],
+  
 ];
 
 export default function WorkPage() {
@@ -139,26 +141,6 @@ export default function WorkPage() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
 
-                    {/* VIEW BADGE */}
-                    <span
-                      className="
-                        absolute
-                        bottom-4
-                        right-4
-                        flex
-                        items-center
-                        gap-2
-                        bg-[#5a4bff]
-                        px-4
-                        py-2.5
-                        text-sm
-                        font-bold
-                        text-white
-                      "
-                    >
-                      View
-                      <ArrowUpRight className="h-4 w-4" />
-                    </span>
                   </div>
 
                   {/* PROJECT INFO */}

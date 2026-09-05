@@ -178,8 +178,6 @@ export default function WhyChooseUs() {
   alt="Why choose us illustration"
   width={750}
   height={750}
-  priority
-  loading="eager"
   className="
     h-auto
     w-full

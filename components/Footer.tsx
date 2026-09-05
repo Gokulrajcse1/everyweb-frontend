@@ -79,7 +79,6 @@ export default function Footer() {
                   alt="EveryWeb Matters"
                   width={220}
                   height={60}
-                  priority
                   className="h-10 w-auto max-w-full object-contain sm:h-11"
                 />
               </Link>

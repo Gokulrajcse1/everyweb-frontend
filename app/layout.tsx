@@ -13,6 +13,7 @@ const atkinson = Atkinson_Hyperlegible({
   variable: "--font-atkinson",
   subsets: ["latin"],
   weight: ["400", "700"],
+  preload: false,
 });
 
 const montserrat = Montserrat({

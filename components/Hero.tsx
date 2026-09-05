@@ -77,7 +77,6 @@ export default function Hero() {
               alt="3D Astronaut Rocket Illustration"
               width={1100}
               height={1100}
-              priority
               className="
                 h-auto
                 w-full

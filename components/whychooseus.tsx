@@ -65,7 +65,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* =========================
-            MOBILE / TAB IMAGE (BELOW HEADING)
+            MOBILE / TABLET IMAGE
         ========================== */}
         <div className="mb-6 flex justify-center lg:hidden">
           <Image
@@ -111,9 +111,7 @@ export default function WhyChooseUs() {
                     gap-0
                   "
                 >
-                  {/* =========================
-                      IMAGE
-                  ========================== */}
+                  {/* IMAGE */}
                   <div
                     className="
                       flex
@@ -146,9 +144,7 @@ export default function WhyChooseUs() {
                     />
                   </div>
 
-                  {/* =========================
-                      TEXT
-                  ========================== */}
+                  {/* TEXT */}
                   <div
                     className="
                       flex-1

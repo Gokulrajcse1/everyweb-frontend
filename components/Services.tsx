@@ -39,20 +39,20 @@ export default function ServicesSection() {
           </h2>
         </div>
 
-        {/* SERVICE CARDS */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-8">
-          {services.map((service) => {
+        {/* SERVICE CARDS GRID */}
+        <div className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {services.map((service, index) => {
             const isHovered = hoveredCard === service.title;
 
             return (
               <div
                 key={service.title}
-                onMouseEnter={() =>
-                  setHoveredCard(service.title)
-                }
+                onMouseEnter={() => setHoveredCard(service.title)}
                 onMouseLeave={() => setHoveredCard(null)}
                 className={`
                   flex
+                  w-full
+                  max-w-[380px]
                   min-h-125
                   cursor-pointer
                   flex-col
@@ -65,6 +65,9 @@ export default function ServicesSection() {
                   transition-all
                   duration-300
                   ease-out
+                  ${
+                    index === 2 ? "sm:col-span-2 lg:col-span-1" : ""
+                  }
                   ${
                     isHovered
                       ? "-translate-y-3 border-[#5a4bff] shadow-[8px_8px_0_0_#5a4bff]"
@@ -118,7 +121,7 @@ export default function ServicesSection() {
                       font-bold
                       leading-tight
                       text-black
-                      sm:text-[34px]
+                      sm:text-[32px]
                       lg:text-[36px]
                     "
                   >

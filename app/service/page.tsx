@@ -160,16 +160,10 @@ export default function ServicePage() {
   useEffect(() => {
     readHashAndSetTab();
 
-    window.addEventListener(
-      "hashchange",
-      readHashAndSetTab
-    );
+    window.addEventListener("hashchange", readHashAndSetTab);
 
     return () => {
-      window.removeEventListener(
-        "hashchange",
-        readHashAndSetTab
-      );
+      window.removeEventListener("hashchange", readHashAndSetTab);
     };
   }, []);
 
@@ -179,10 +173,10 @@ export default function ServicePage() {
 
   return (
     <main className="min-h-screen w-full bg-[#fafafa] text-[#10203b]">
-      <div className="w-full px-6 py-10 md:px-16">
+      <div className="w-full px-4 py-6 sm:px-8 sm:py-8 md:px-16">
 
         {/* TOP BAR */}
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-6 flex items-center justify-between sm:mb-8">
           <button
             type="button"
             onClick={() => router.back()}
@@ -208,8 +202,8 @@ export default function ServicePage() {
           </span>
         </div>
 
-        {/* TABS */}
-        <div className="mb-2 flex flex-wrap items-center justify-center gap-8 pb-6 sm:gap-14">
+        {/* TABS - SINGLE LINE LAYOUT FOR MOBILE & TAB */}
+        <div className="mb-6 flex w-full items-center justify-start gap-5 overflow-x-auto pb-3 sm:justify-center sm:gap-10">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
 
@@ -218,7 +212,7 @@ export default function ServicePage() {
                 key={tab.id}
                 type="button"
                 onClick={() => handleTabChange(tab.id)}
-                className={`relative pb-1 text-[18px] font-bold transition-colors duration-200 sm:text-[24px] ${
+                className={`relative shrink-0 whitespace-nowrap pb-1.5 text-[15px] font-bold transition-colors duration-200 sm:text-[22px] ${
                   isActive
                     ? "text-[#5a4bff]"
                     : "text-[#8da0bb] hover:text-[#5a4bff]"
@@ -227,7 +221,7 @@ export default function ServicePage() {
                 {tab.label}
 
                 {isActive && (
-                  <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-[#5a4bff]" />
+                  <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-[#5a4bff]" />
                 )}
               </button>
             );
@@ -245,13 +239,13 @@ export default function ServicePage() {
             return (
               <div
                 key={detail.title}
-                className={`flex items-center gap-4 border-b border-indigo-100 py-6 sm:gap-5 sm:py-7 ${
+                className={`flex items-start gap-4 border-b border-indigo-100 py-6 sm:gap-5 sm:py-7 ${
                   index === 0
                     ? "border-t border-indigo-100"
                     : ""
                 }`}
               >
-                {/* ICON */}
+                {/* ICON BOX */}
                 <div
                   className="
                     flex
@@ -263,23 +257,23 @@ export default function ServicePage() {
                     rounded-xl
                     bg-[#111a30]
                     text-white
-                    sm:h-14.5
-                    sm:w-14.5
+                    sm:h-16
+                    sm:w-16
                   "
                 >
                   <Icon
-                    className="h-6 w-6 sm:h-7 sm:w-7"
+                    className="h-6 w-6 sm:h-8 sm:w-8"
                     strokeWidth={1.8}
                   />
                 </div>
 
-                {/* TEXT */}
-                <div className="min-w-0 flex-1">
-                  <h2 className="text-[21px] font-bold leading-tight sm:text-[24px]">
+                {/* TEXT CONTAINER WITH CLEAN GAP */}
+                <div className="flex min-w-0 flex-1 flex-col gap-2 pt-0.5">
+                  <h2 className="text-[18px] font-bold leading-tight sm:text-[24px]">
                     {detail.title}
                   </h2>
 
-                  <p className="mt-2 text-[16px] leading-7 text-[#36506f] sm:text-[18px]">
+                  <p className="text-[14px] leading-relaxed text-[#36506f] sm:text-[17px] sm:leading-7">
                     {detail.description}
                   </p>
                 </div>

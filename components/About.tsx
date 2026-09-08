@@ -146,18 +146,21 @@ export default function AboutSection() {
         >
 
           {/* =========================
-              LEFT IMAGE
+              LEFT IMAGE (SIZE INCREASED ON TAB)
           ========================== */}
           <div className="flex justify-center lg:justify-start">
             <Image
               src="/chracter2.svg"
               alt="Flying superhero illustration"
-              width={560}
-              height={560}
+              width={700}
+              height={700}
               className="
                 h-auto
                 w-full
-                max-w-140
+                max-w-85
+                sm:max-w-125
+                md:max-w-150
+                lg:max-w-140
               "
             />
           </div>
@@ -183,7 +186,7 @@ export default function AboutSection() {
               Who We Are
             </h3>
 
-            {/* Paragraph Text - Starts Left and wraps naturally */}
+            {/* Paragraph Text */}
             <div
               className="
                 mt-5

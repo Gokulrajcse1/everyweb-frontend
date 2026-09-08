@@ -52,7 +52,7 @@ export default function ServicesSection() {
                 className={`
                   flex
                   w-full
-                  max-w-[380px]
+                  max-w-95
                   min-h-125
                   cursor-pointer
                   flex-col

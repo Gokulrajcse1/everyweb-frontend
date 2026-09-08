@@ -27,18 +27,19 @@ export default function AboutSection() {
         {/* =========================
             CREATIVE SOLUTIONS
         ========================== */}
-        <div className="mb-10 sm:mb-12">
+        <div className="mb-10 text-left sm:mb-12">
           <h2
             className="
-              text-[40px]
+              text-[38px]
               font-bold
               italic
-              leading-[0.98]
+              leading-[1.05]
               tracking-[-0.03em]
               text-black
               sm:text-[50px]
               md:text-[64px]
               lg:text-[72px]
+              lg:leading-[0.98]
             "
           >
             Creative{" "}
@@ -57,13 +58,13 @@ export default function AboutSection() {
               key={title}
               className={`
                 flex
-                h-32
+                min-h-32
                 flex-col
                 items-end
                 justify-center
                 border-black
                 bg-[#f3f3f3]
-                px-5
+                p-5
                 text-right
 
                 ${
@@ -113,12 +114,13 @@ export default function AboutSection() {
               {/* Description */}
               <p
                 className="
-                  mt-4
-                  whitespace-nowrap
+                  mt-3
                   text-[13px]
-                  leading-none
+                  leading-tight
                   text-[#444444]
+                  sm:mt-4
                   sm:text-[14px]
+                  sm:leading-none
                 "
               >
                 {subtitle}
@@ -164,26 +166,33 @@ export default function AboutSection() {
               RIGHT CONTENT
           ========================== */}
           <div>
+            {/* Heading - Centered on Mobile/Tablet, Left-aligned on Desktop */}
             <h3
               className="
-                text-[42px]
+                text-center
+                text-[38px]
                 font-bold
-                leading-none
+                leading-tight
                 text-black
                 sm:text-[52px]
+                sm:leading-none
+                lg:text-left
                 lg:text-[64px]
               "
             >
               Who We Are
             </h3>
 
+            {/* Paragraph Text - Starts Left and wraps naturally */}
             <div
               className="
                 mt-5
-                space-y-2
-                text-[17px]
-                leading-8
+                space-y-4
+                text-left
+                text-[16px]
+                leading-relaxed
                 text-[#333333]
+                wrap-break-word
                 sm:space-y-6
                 sm:text-[20px]
                 sm:leading-9

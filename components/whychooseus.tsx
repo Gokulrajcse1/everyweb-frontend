@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
         {/* =========================
             HEADING
         ========================== */}
-        <div className="mb-6 sm:mb-7 lg:mb-12 lg:pt-4">
+        <div className="mb-4 text-center sm:mb-6 lg:mb-12 lg:pt-4 lg:text-left">
           <h2
             className="
               text-[40px]
@@ -62,6 +62,26 @@ export default function WhyChooseUs() {
           >
             Why Choose Us?
           </h2>
+        </div>
+
+        {/* =========================
+            MOBILE / TAB IMAGE (BELOW HEADING)
+        ========================== */}
+        <div className="mb-6 flex justify-center lg:hidden">
+          <Image
+            src="/whychoose-usCharacter.svg"
+            alt="Why choose us illustration"
+            width={750}
+            height={750}
+            priority
+            className="
+              h-auto
+              w-full
+              max-w-85
+              object-contain
+              sm:max-w-110
+            "
+          />
         </div>
 
         {/* =========================
@@ -170,25 +190,24 @@ export default function WhyChooseUs() {
           </div>
 
           {/* =========================
-              RIGHT - ILLUSTRATION
+              DESKTOP ONLY - ILLUSTRATION
           ========================== */}
- <div className="hidden items-start justify-center lg:flex lg:-mt-6 lg:translate-x-6">
-             <Image
-  src="/whychoose-usCharacter.svg"
-  alt="Why choose us illustration"
-  width={750}
-  height={750}
-  priority
-  loading="eager"
-  className="
-    h-auto
-    w-full
-    max-w-130
-    object-contain
-    lg:w-110
-    lg:max-w-none
-  "
-/>
+          <div className="hidden items-start justify-center lg:flex lg:-mt-6 lg:translate-x-6">
+            <Image
+              src="/whychoose-usCharacter.svg"
+              alt="Why choose us illustration"
+              width={750}
+              height={750}
+              priority
+              className="
+                h-auto
+                w-full
+                max-w-130
+                object-contain
+                lg:w-110
+                lg:max-w-none
+              "
+            />
           </div>
         </div>
       </div>
